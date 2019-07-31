@@ -1,10 +1,13 @@
 {
   "env": {
       "browser": true,
-      "es6": true
+      "es6": true,
+      "jest": true
   },
   "extends": [
-      "airbnb"
+      "airbnb",
+      "plugin:jest/recommended",
+      "jest-enzyme"
   ],
   "globals": {
       "Atomics": "readonly",
@@ -19,7 +22,8 @@
       "sourceType": "module"
   },
   "plugins": [
-      "react"
+      "react",
+      "jest"
   ],
   "rules": {
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
