@@ -18,9 +18,10 @@ describe('App', () => {
     expect(app.find('div').length).toBe(1);
   });
 
-  it('renders a h1 component', () => {
-    const heading = app.find('h1');
-    expect(heading.length).toBe(1);
-    expect(heading.first().text()).toEqual('Welcome to Author\'s Haven');
+  it('renders a Switch component', () => {
+    expect(app.find('Switch').length).toBe(1);
+  });
+  it('renders a Route component', () => {
+    expect(app.find('Route').length).toBe(3);
   });
 });
