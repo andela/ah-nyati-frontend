@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 /**
  * Dumnmy Home page component, renders the landing page of the app.
  * It also holds the links to the dummy login and error pages
