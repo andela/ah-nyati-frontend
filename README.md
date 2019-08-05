@@ -3,6 +3,10 @@
 
 [![CircleCI](https://circleci.com/gh/andela/ah-nyati-frontend.svg?style=svg)](https://circleci.com/gh/andela/ah-nyati-frontend)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/adb98308d97747a7f375/maintainability)](https://codeclimate.com/github/andela/ah-nyati-frontend/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/adb98308d97747a7f375/test_coverage)](https://codeclimate.com/github/andela/ah-nyati-frontend/test_coverage)
+
 # Author's Haven
 > A Social platform for the creative at heart
 
