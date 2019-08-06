@@ -1,6 +1,7 @@
 exclude_patterns:
  - "**/*.test.js"
  - "src/index.js"
+ - "**/_coverage_/"
  - "**/node_modules/"
 checks:
   method-lines:

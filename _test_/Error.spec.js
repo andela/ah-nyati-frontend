@@ -2,12 +2,12 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import Error from '../src/views/Error';
+import Error from '../src/components/Error/Error';
 
-describe('App', () => {
+describe('Error', () => {
   let app;
   beforeEach(() => {
-    app = shallow(<Error />);
+    app = shallow(<Error statusCode={404} message="Page not found" />);
   });
 
   it('renders successfully', () => {
@@ -15,24 +15,18 @@ describe('App', () => {
   });
 
   it('renders a div component', () => {
-    expect(app.find('div').length).toBe(1);
+    expect(app.find('div').length).toBe(3);
   });
 
-  it('renders a h1 component', () => {
-    expect(app.find('h1').length).toBe(1);
+  it('renders a h2 component', () => {
+    expect(app.find('h2').length).toBe(1);
   });
 
-  it('renders a h3 component', () => {
-    expect(app.find('h3').length).toBe(1);
+  it('renders a p component', () => {
+    expect(app.find('p').length).toBe(2);
   });
 
-  it('renders a ul component', () => {
-    expect(app.find('ul').length).toBe(1);
-  });
-  it('renders a li component', () => {
-    expect(app.find('li').length).toBe(1);
-  });
-  it('renders a Link component', () => {
-    expect(app.find('Link').length).toBe(1);
+  it('renders a svg component', () => {
+    expect(app.find('svg').length).toBe(1);
   });
 });

@@ -1,21 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Homepage from '../views/Homepage';
 import Login from '../views/Login';
-import Error from '../views/Error';
+import Navbar from './NavBar/NavBar';
+import Register from '../views/register';
+import About from '../views/about';
+
+// import Error from '../views/Error';
+import NotFound from '../views/NotFound';
 
 /**
  * App component, renders all the other components.
  */
 const App = () => (
   <div>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Homepage} />
-        <Route path="/login" component={Login} />
-        <Route to="" component={Error} />
-      </Switch>
-    </Router>
+    <Navbar />
+    <Switch>
+      <Route exact path="/" component={Homepage} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
+      <Route path="/about" component={About} />
+      <Route component={NotFound} />
+    </Switch>
   </div>
 );
 

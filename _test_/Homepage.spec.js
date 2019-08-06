@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 
 import Homepage from '../src/views/Homepage';
 
-describe('App', () => {
+describe('Homepage', () => {
   let app;
   beforeEach(() => {
     app = shallow(<Homepage />);
