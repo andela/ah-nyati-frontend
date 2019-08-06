@@ -1,8 +1,9 @@
 exclude_patterns:
- - "**/*.test.js"
+ - "**/_test_/"
  - "src/index.js"
  - "**/_coverage_/"
  - "**/node_modules/"
+ - "**/_coverage_/"
 checks:
   method-lines:
     config:
@@ -11,3 +12,4 @@ checks:
     enabled: false
   identical-code:
     enabled: true
+    
