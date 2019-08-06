@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
 import { ToastContainer } from 'react-toastify';
-import NavBar from './NavBar/Index';
+import NavBar from './NavBar';
 import Homepage from '../views/Homepage';
 import Register from '../views/Register';
 import Login from './LoginForm/Index';
@@ -14,6 +14,7 @@ import SocialAuth from '../views/SocialAuth';
 import ResetPassword from '../views/ResetPassword';
 import PasswordReset from './PasswordReset/PasswordReset';
 import 'react-toastify/dist/ReactToastify.css';
+import Articles from '../views/articles';
 
 const App = () => (
   <div>
@@ -30,6 +31,7 @@ const App = () => (
       <Route path="/resetPassword" component={ResetPassword} />
       <Route path="/newpassword" component={PasswordReset} />
       <Route path="/socialAuth" component={SocialAuth} />
+      <Route path="/articles" component={Articles} />
       <Route component={NotFound} />
     </Switch>
   </div>

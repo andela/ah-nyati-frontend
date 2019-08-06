@@ -20,11 +20,22 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader'],
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./src/variables.scss', './src/mixins.scss'],
+            },
+          },
+        ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
-        loader: 'url-loader?limit=8000&name=images/[name].[ext]',
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: ['url-loader?limit=8000&name=images/[name].[ext]', 'file-loader'],
       },
     ],
   },
