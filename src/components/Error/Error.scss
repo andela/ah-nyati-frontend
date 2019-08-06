@@ -1,0 +1,31 @@
+.Container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../../assets/defaultBg.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+}
+.ErrorBox {
+  margin: auto;
+  width: 70%;
+  height: 70%;
+  background: rgba(255, 253, 253, 0.82);
+  border-radius: 10px;
+}
+.ErrorMessage {
+  text-align: center;
+  margin-top: 60px;
+  font-family: Arial;
+  font-size: 35px;
+  line-height: 50px;
+}
+.ErrorMessage h2 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+.Link a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}

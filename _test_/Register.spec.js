@@ -2,9 +2,9 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import Login from '../src/views/Login';
+import Login from '../src/views/register';
 
-describe('Login', () => {
+describe('Register', () => {
   let app;
   beforeEach(() => {
     app = shallow(<Login />);
