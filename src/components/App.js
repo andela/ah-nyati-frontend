@@ -7,6 +7,7 @@ import LoginForm from './LoginForm/LoginForm';
 import About from '../views/about';
 import Dashboard from '../views/Dashboard';
 import NotFound from '../views/NotFound';
+import Articles from '../views/articles';
 
 const App = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/about" component={About} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/articles" component={Articles} />
       <Route component={NotFound} />
     </Switch>
   </div>
