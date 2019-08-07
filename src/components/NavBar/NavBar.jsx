@@ -10,7 +10,7 @@ class NavBar extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-expand-sm mb-4">
+      <nav className="navbar navbar-expand-sm mb-4 fixed-top">
         <div className="container">
           <NavLink to="/" className="navbar-brand">
             <svg width="80" height="50" viewBox="0 0 100 86" fill="none" xmlns="http://www.w3.org/2000/svg">
