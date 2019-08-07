@@ -8,6 +8,8 @@ describe('Login reducer', () => {
     initialState = {
       article: {},
       loading: false,
+      alert: '',
+      rating: '',
     };
   });
   it('should return the initial state', () => {
@@ -31,6 +33,32 @@ describe('Login reducer', () => {
       ...initialState,
       loading: false,
       article: 'Some random article',
+    });
+  });
+  it('should set loading to true rating submit is clicked', () => {
+    expect(reducer(initialState, {
+      type: actionTypes.RATE_ARTICLE_START,
+    })).toEqual({
+      ...initialState,
+      loading: true,
+    });
+  });
+  it('should update rating successful', () => {
+    expect(reducer(initialState, {
+      type: actionTypes.RATE_ARTICLE_SUCCESS, rating: {}, message: 'rating updated',
+    })).toEqual({
+      ...initialState,
+      loading: false,
+      rating: {},
+      alert: 'rating updated',
+    });
+  });
+  it('should set loading to false rating submit fails', () => {
+    expect(reducer(initialState, {
+      type: actionTypes.RATE_ARTICLE_FAILURE,
+    })).toEqual({
+      ...initialState,
+      loading: false,
     });
   });
 });

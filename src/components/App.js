@@ -33,6 +33,7 @@ if (token) {
   loggedInUser = store.dispatch(setCurrentUser(decoded));
 }
 
+
 const App = () => (
   <React.Fragment>
     <ReduxToastr
