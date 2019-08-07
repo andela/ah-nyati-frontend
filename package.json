@@ -23,8 +23,8 @@
   "homepage": "https://github.com/andela/ah-nyati-frontend#readme",
   "dependencies": {
     "@emotion/core": "^10.0.15",
-    "axios": "^0.19.0",
     "classnames": "^2.2.6",
+    "axios": "^0.19.0",
     "css-loader": "^3.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",

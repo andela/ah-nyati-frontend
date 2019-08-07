@@ -10,7 +10,7 @@ import './LoginForm.scss';
  * @class LoginForm
  * @extends {Component}
  */
-export class LoginForm extends Component {
+class LoginForm extends Component {
   constructor() {
     super();
     this.state = {

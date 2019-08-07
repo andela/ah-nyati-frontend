@@ -80,3 +80,21 @@ form {
 .invalid-feedback {
   font-size: 70%;
 }
+
+@media (max-width: 1024px) {
+  .content {
+    display: none;
+  }
+
+  .main-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .main-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80px;
+  }
+}

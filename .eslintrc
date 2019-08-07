@@ -29,6 +29,6 @@
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       "react/no-unescaped-entities": 0,
       "jest/valid-expect-in-promise": 0,
-      "react/destructuring-assignment": 0
+      "react/destructuring-assignment": 0,
   }
 }
