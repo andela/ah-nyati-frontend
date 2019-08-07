@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { registerUser } from '../../actions/authActions';
 import InputField from '../InputField/InputField';
+import axios from '../../config/axiosInstance';
 
 class Form extends Component {
   state = {
@@ -46,6 +47,7 @@ class Form extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     // console.log(this.formRef.current.className);
+
     const newUserDetails = {
       userName: this.state.userName,
       email: this.state.email,
@@ -53,6 +55,9 @@ class Form extends Component {
     };
 
     this.props.registerUser(newUserDetails, this.props.history);
+    axios.post('/auth/signup', newUserDetails)
+      .then(res => console.log(res.data))
+      .catch(err => this.setState({ errors: err.response.data.message }));
   }
 
   render() {
@@ -69,13 +74,14 @@ class Form extends Component {
       email: 'email',
       password: 'password',
     };
+    console.log(errors);
 
     return (
       <div className="cont">
         <div className="form-div row">
           <div className="col-sm-7 content">
             <h1 className="intro">Want to become a contributor?</h1>
-            {/* <p className="msg">Sign up with</p> */}
+            <p className="msg">Sign up with</p>
             <div className="row social-login">
               <div className="col-sm-3">
                 <a href="hello.com">

@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import axios from '../config/axiosInstance';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import { GET_ERRORS, SET_CURRENT_USER, TEST_DISPATCH } from './types';
 import setAuthToken from '../utils/setAuthToken';
 // import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../constants';
 
