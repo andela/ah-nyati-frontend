@@ -1,5 +1,4 @@
 import React from 'react';
-import './PasswordReset.scss';
 import Proptypes from 'prop-types';
 
 

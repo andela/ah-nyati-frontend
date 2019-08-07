@@ -4,10 +4,11 @@ import Notifications from 'react-notify-toast';
 import { ToastContainer } from 'react-toastify';
 import NavBar from './NavBar/Index';
 import Homepage from '../views/Homepage';
-import Register from '../views/register';
+import Register from '../views/Register';
 import Login from './LoginForm/Index';
 import About from '../views/about';
 import Dashboard from '../views/Dashboard';
+
 import NotFound from '../views/NotFound';
 import ResetPassword from '../views/ResetPassword';
 import PasswordReset from './PasswordReset/PasswordReset';
@@ -21,6 +22,7 @@ const App = () => (
     <Switch>
       <Route exact path="/" component={Homepage} />
       <Route path="/register" component={Register} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route path="/login" component={Login} />
       <Route path="/about" component={About} />
       <Route path="/dashboard" component={Dashboard} />

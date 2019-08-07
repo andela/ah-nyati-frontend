@@ -1,0 +1,183 @@
+.cont {
+  background: url(../../assets/defaultBg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  padding-top: 10%;
+}
+
+form {
+  background: rgba(46, 153, 214, 0.9);
+  color: #fff;
+  padding: 35px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  margin: auto;
+}
+
+.form-control {
+  background: #D9D7D7;
+  border: 1px solid #fff;
+  height: 50px;
+}
+
+#submit {
+  height: 50px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border-radius: 5px;
+  color: #535353;
+}
+
+.form-div {
+  background: rgba(255, 255, 255, .5);
+  width: 70%;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 0;
+}
+
+.pswd {
+  color: #FFFFFF;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
+  text-align: center;
+  display: block;
+}
+
+.reseta {
+  margin-top: 10%;
+}
+
+.intro {
+  color: #535353;
+  font-size: 62px;
+  margin-top: 20%;
+}
+
+.intro2 {
+  color: #535353;
+  padding-top: 5%;
+  font-size: 35px;
+}
+
+.form-div3 {
+  margin-top: 5%;
+}
+
+.login-form {
+  padding-top: 7%;
+  padding-bottom: 7%;
+}
+
+.reset-form {
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.social-login {
+  text-align: center;
+  margin: 0;
+  margin-top: 28%;
+}
+
+.social {
+  font-size: 70px;
+}
+
+.lil-soc {
+  display: none;
+}
+
+#small-socials {
+  display: none;
+}
+
+.fa-google-plus {
+  color: #CC3333;
+}
+
+.fa-facebook {
+  color: #3b5998;
+}
+
+.fa-twitter {
+  color: #1da1f2;
+}
+
+.fa-github {
+  color: #000;
+}
+
+.msg {
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  font-size: 25px;
+}
+
+.invalid-feedback {
+  font-size: 70%;
+}
+
+.lil-signup {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    display: none;
+  }
+
+  .main-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 80%;
+  }
+
+  .lil-signup {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  form {
+    padding-top: 10px;
+  }
+
+  .form-div {
+    width: 90%;
+    margin-top: 5%;
+    margin-bottom: 10%;
+  }
+
+  .social-login {
+    margin-top: 10%;
+  }
+
+  .social {
+    margin-bottom: 10px;
+    font-size: 50px;
+  }
+
+  .col-md-3 {
+    width: 25%;
+  }
+
+  .fa-twitter {
+    color: #fff;
+  }
+
+  .lil-soc {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-10 {
+    flex: 0 0 60%;
+  }
+}

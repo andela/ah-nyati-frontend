@@ -3,3 +3,5 @@ node_modules/
 /dist
 /coverage
 _coverage_
+coverage
+__snapshots__

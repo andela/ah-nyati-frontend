@@ -8,6 +8,7 @@
     "start": "node index.js",
     "dev": "webpack-dev-server --open --hot",
     "test": "jest --coverage --colors -u",
+    "test-only": "jest -t 'Dashboard'",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --colors"
   },
@@ -21,6 +22,12 @@
     "url": "https://github.com/andela/ah-nyati-frontend/issues"
   },
   "homepage": "https://github.com/andela/ah-nyati-frontend#readme",
+  "jest": {
+    "setupFiles": [
+      "jest-localstorage-mock",
+      "browserMocks.js"
+    ]
+  },
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "axios": "^0.19.0",
@@ -30,6 +37,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "expect": "^24.8.0",
     "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
     "moxios": "^0.4.0",
@@ -81,6 +89,7 @@
     "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
+    "jest-localstorage-mock": "^2.4.0",
     "jest-transform-css": "^2.0.0",
     "node-fetch": "^2.6.0",
     "postcss-loader": "^3.0.0",

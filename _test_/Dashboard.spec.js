@@ -4,32 +4,34 @@ import { shallow } from 'enzyme';
 
 import Dashboard from '../src/views/Dashboard';
 
-describe('Homepage', () => {
-  let app;
+describe('Dashboard', () => {
+  let component;
+
   beforeEach(() => {
-    app = shallow(<Dashboard />);
+    component = shallow(<Dashboard />);
   });
 
   it('renders successfully', () => {
-    expect(app).toBeDefined();
+    expect(component).toBeDefined();
   });
 
   it('renders a div component', () => {
-    expect(app.find('div').length).toBe(1);
+    expect(component.find('div').length).toBe(1);
   });
 
-  it('renders a h1 component', () => {
-    expect(app.find('h1').length).toBe(1);
+  it('renders an h4 tag', () => {
+    expect(component.find('h4').length).toBe(1);
   });
 
-  it('renders a h3 component', () => {
-    expect(app.find('h3').length).toBe(1);
+  it('renders a ul tag', () => {
+    expect(component.find('ul').length).toBe(1);
   });
 
-  it('renders a ul component', () => {
-    expect(app.find('ul').length).toBe(1);
+  it('renders a li tag', () => {
+    expect(component.find('li').length).toBe(1);
   });
-  it('renders a li component', () => {
-    expect(app.find('li').length).toBe(1);
+
+  it('renders a Link tag', () => {
+    expect(component.find('Link').length).toBe(1);
   });
 });

@@ -17,10 +17,6 @@ describe('App', () => {
     expect(app.find('div').length).toBe(4);
   });
 
-  it('renders a blockquote tag', () => {
-    expect(app.find('blockquote').length).toBe(1);
-  });
-
   it('renders a br tag', () => {
     expect(app.find('br').length).toBe(2);
   });

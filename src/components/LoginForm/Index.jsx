@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
-import Socials from '../Socials/Index';
 import { loginUser } from '../../actions/authActions';
-import './LoginForm.scss';
+import Socials from '../Socials';
 
 /**
  *
@@ -51,20 +50,20 @@ export class LoginForm extends Component {
 
     return (
       <div className="cont">
-        <div className="form-div row">
-          <div className="col-md-7 col-sm-7 content">
-            <h1 className="intro">
-            "Write. Rewrite. When not writting or rewritting, read. I know of no shortcuts"
-            </h1>
+        <div className="form-div form-div2 row">
+          <div className="col-lg-7 col-md-0 content">
             <h3 className="intro2">
-            - Larry L. King, WD
+            "Write. Rewrite. When not writing or rewriting, read. I know of no shortcuts"
             </h3>
+            <h4 className="intro2">
+            - Larry L. King, WD
+            </h4>
             <div>
               <p className="msg">Login with</p>
             </div>
             <Socials />
           </div>
-          <form className="col-md-5 col-sm-5" onSubmit={this.onSubmit}>
+          <form className="col-lg-5 col-md-10 main-form login-form" onSubmit={this.onSubmit}>
             { errors.auth && <div className="err">Invalid email or password</div> }
             <div className="form-group">
               <p>Email:</p>
