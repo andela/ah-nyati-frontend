@@ -30,9 +30,9 @@ describe('Login', () => {
     expect(app.find('ul').length).toBe(1);
   });
   it('renders a li component', () => {
-    expect(app.find('li').length).toBe(1);
+    expect(app.find('li').length).toBe(2);
   });
   it('renders a Link component', () => {
-    expect(app.find('Link').length).toBe(1);
+    expect(app.find('Link').length).toBe(2);
   });
 });

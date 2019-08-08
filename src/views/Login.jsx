@@ -13,6 +13,12 @@ const Login = () => (
       <li>
         <Link to="/">CLICK HERE TO GO BACK TO THE HOMEPAGE</Link>
       </li>
+      <br />
+      <br />
+      <br />
+      <li>
+        <Link to="/resetPassword">Forgot Password?</Link>
+      </li>
     </ul>
   </div>
 );

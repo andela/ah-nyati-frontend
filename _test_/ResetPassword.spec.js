@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import App from '../src/components/App';
+import App from '../src/views/ResetPassword';
 
 describe('App', () => {
   let app;
@@ -13,15 +13,11 @@ describe('App', () => {
   it('renders successfully', () => {
     expect(app).toBeDefined();
   });
-
-  it('renders a div component', () => {
+  it('renders a div tag', () => {
     expect(app.find('div').length).toBe(1);
   });
 
-  it('renders a Switch component', () => {
-    expect(app.find('Switch').length).toBe(1);
-  });
-  it('renders a Route component', () => {
-    expect(app.find('Route').length).toBe(7);
+  it('renders a ResetEmail tag', () => {
+    expect(app.find('ResetEmail').length).toBe(1);
   });
 });
