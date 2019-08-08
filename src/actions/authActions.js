@@ -1,7 +1,8 @@
 import axios from '../config/axiosInstance';
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import {
+  GET_ERRORS, SET_CURRENT_USER,
+} from './types';
 import setAuthToken from '../utils/setAuthToken';
-// import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../constants';
 
 // set logged in user
 export const setCurrentUser = decoded => ({
