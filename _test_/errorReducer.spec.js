@@ -1,21 +1,15 @@
 import errorReducer from '../src/reducers/errorReducer';
-import * as actionTypes from '../src/actions/types';
+import {
+  GET_ERRORS,
+} from '../src/actions/types';
 
 describe('Error reducer', () => {
-  let initialState;
-
-  beforeEach(() => {
-    initialState = {
-    };
-  });
-  it('should return the initial state', () => {
-    expect(errorReducer(undefined, {})).toEqual({});
-  });
-
-  it('should successfully get all errors', () => {
-    expect(errorReducer(initialState, {
-      type: actionTypes.GET_ERRORS,
-      payload: 'error',
-    })).toEqual('error');
+  it('should return thrown error', () => {
+    expect(
+      errorReducer([], {
+        type: GET_ERRORS,
+        payload: 'This is an error!',
+      }),
+    ).toEqual('This is an error!');
   });
 });

@@ -18,7 +18,7 @@ const ArticleCard = (props) => {
 
   return (
     <div className="article-card__wrapper">
-      <img src={imageUrl || 'src/assets/articleImage.png'} alt="" className="article-card__image" />
+      <img src={imageUrl || '/src/assets/articleImage.png'} alt="" className="article-card__image" />
       <div className="article-card__aside">
         <h3 className="article-card__title">{title}</h3>
         <p className="article-card__text line-clamp">{`${truncText}...`}</p>

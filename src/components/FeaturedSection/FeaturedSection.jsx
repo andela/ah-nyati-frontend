@@ -13,19 +13,19 @@ const FeaturedSection = ({ data }) => {
     },
     {
       title: 'Article 2',
-      imageUrl: 'src/assets/butterfly.svg',
+      imageUrl: '/src/assets/butterfly.svg',
     },
     {
       title: 'Article 3',
-      imageUrl: 'src/assets/flower.svg',
+      imageUrl: '/src/assets/flower.svg',
     },
     {
       title: 'Article 4',
-      imageUrl: 'src/assets/emerald.svg',
+      imageUrl: '/src/assets/emerald.svg',
     },
     {
       title: 'Article 5',
-      imageUrl: 'src/assets/rose.svg',
+      imageUrl: '/src/assets/rose.svg',
     },
   ];
 
