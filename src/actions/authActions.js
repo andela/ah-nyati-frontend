@@ -1,15 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import axios from '../config/axiosInstance';
-import { GET_ERRORS, SET_CURRENT_USER, TEST_DISPATCH } from './types';
+import { GET_ERRORS, SET_CURRENT_USER } from './types';
 import setAuthToken from '../utils/setAuthToken';
 // import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../constants';
-
-export const registerUser = (newUserDetails) => {
-  return {
-    type: TEST_DISPATCH,
-    payload: newUserDetails,
-  };
-};
 
 // set logged in user
 export const setCurrentUser = decoded => ({
@@ -35,5 +28,18 @@ export const loginUser = userData => (dispatch) => {
     .catch(error => dispatch({
       type: GET_ERRORS,
       payload: error.response.data.message,
+    }));
+};
+
+export const registerUser = (newUserDetails, history) => (dispatch) => {
+  axios.post('/auth/signup', newUserDetails)
+    .then((res) => {
+      if (res.status === 201) {
+        history.push('/dashboard');
+      }
+    })
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data.message,
     }));
 };
