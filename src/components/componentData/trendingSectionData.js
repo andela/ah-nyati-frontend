@@ -17,7 +17,7 @@ const {
 export const trendingArticles = [
   {
     title: 'Article 1',
-    imageUrl: 'src/assets/dusk.svg',
+    imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357741/AH-assets/dusk.svg',
     text: articleText,
     date: articleDate,
     readTime: articleTime,
@@ -26,7 +26,7 @@ export const trendingArticles = [
   },
   {
     title: 'Article 2',
-    imageUrl: 'src/assets/dusk.svg',
+    imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357741/AH-assets/dusk.svg',
     text: articleText,
     date: articleDate,
     readTime: articleTime,
@@ -35,7 +35,7 @@ export const trendingArticles = [
   },
   {
     title: 'Article 3',
-    imageUrl: 'src/assets/dusk.svg',
+    imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357741/AH-assets/dusk.svg',
     text: articleText,
     date: articleDate,
     readTime: articleTime,
@@ -44,7 +44,7 @@ export const trendingArticles = [
   },
   {
     title: 'Article 4',
-    imageUrl: 'src/assets/dusk.svg',
+    imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357741/AH-assets/dusk.svg',
     text: articleText,
     date: articleDate,
     readTime: articleTime,
@@ -53,7 +53,7 @@ export const trendingArticles = [
   },
   {
     title: 'Article 5',
-    imageUrl: 'src/assets/dusk.svg',
+    imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357741/AH-assets/dusk.svg',
     text: articleText,
     date: articleDate,
     readTime: articleTime,
