@@ -19,6 +19,7 @@ import store from '../store';
 import setAuthToken from '../utils/setAuthToken';
 import { setCurrentUser } from '../actions/authActions';
 import CreateArticlePage from './article/CreateArticlePage';
+import UpdateArticlePage from './article/UpdateArticlePage';
 import SingleArticle from './SingleArticle';
 import Comments from './Comments';
 
@@ -60,6 +61,8 @@ const App = () => (
       <Route exact path="/articles" component={Articles} />
       <Route exact path="/articles/:slug" component={SingleArticle} />
       <Route path="/comments/" component={Comments} />
+      <Route path="/updatearticle/:slug" component={UpdateArticlePage} />
+
       <Route component={NotFound} />
     </Switch>
   </React.Fragment>

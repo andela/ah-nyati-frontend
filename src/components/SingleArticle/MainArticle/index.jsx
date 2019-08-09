@@ -2,10 +2,11 @@ import React from 'react';
 import './MainArticle.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import decodeToken from '../../../utils/decoded';
 
 const mainArticle = (props) => {
   const {
-    title, articleBody, views, readTime, author, userId,
+    title, articleBody, views, readTime, author, userId, slug,
   } = props;
 
   let viewInfo = 'Views';
@@ -48,6 +49,14 @@ const mainArticle = (props) => {
           {` ${author}`}
         </p>
       </Link>
+      {
+        userId === decodeToken().id
+          && (
+          <Link to={`/updatearticle/${slug}`} className="linky">
+            <span className="editText float-right">Edit</span>
+          </Link>
+          )
+        }
 
       <div className="img-container">
         <img src={imageUrl} alt="article" className="main-img" />

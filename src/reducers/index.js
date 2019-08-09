@@ -12,6 +12,7 @@ import singleArticleReducer from './singleArticleReducer';
 
 import createArticleReducer from './article/article';
 import fetchCategoryReducer from './category/category';
+import updateArticlesReducer from './article/update';
 
 export default combineReducers({
   auth: authReducer,
@@ -27,4 +28,6 @@ export default combineReducers({
   createArticleReducer,
   toastr: toastrReducer,
   fetchCategoryReducer,
+  updateArticlesReducer,
+
 });

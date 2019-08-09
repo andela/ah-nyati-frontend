@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-operators */
 import React from 'react';
 import propTypes from 'prop-types';
 import ImageUploader from 'react-images-upload';
@@ -5,11 +6,12 @@ import { toastr } from 'react-redux-toastr';
 import { Editor } from '@tinymce/tinymce-react';
 import './article.scss';
 import { connect } from 'react-redux';
-import { createArticle } from '../../actions/article/articles';
+import { updateArticle } from '../../actions/article/update';
 import { getCategories } from '../../actions/category/categories';
+import axiosWithAuth from '../../api/axios';
 import Loader from '../Loader';
 
-export class CreateArticle extends React.Component {
+export class UpdateArticle extends React.Component {
   state = {
     form: {
       title: '',
@@ -21,23 +23,51 @@ export class CreateArticle extends React.Component {
     },
     pictures: [],
     categories: [],
+    imageUrl: '',
+    imageDescription: '',
   };
 
-  componentDidMount = () => {
+  componentDidMount = async () => {
     const token = localStorage.getItem('jwtToken');
+    const { allCategories } = await this.props;
+    this.setState({ isLoading: true });
     if (!token) {
       this.props.history.push('/login', {});
     }
 
-    const { allCategories } = this.props;
-    allCategories().then(data => {
+    allCategories().then((data) => {
       this.setState({
         categories: data.payload[0].categories,
       });
     });
+
+    const { match: { params: { slug }} } = this.props;
+    if (slug) {
+      axiosWithAuth()
+        .get(`/articles/${slug}`)
+        .then(({ data }) => {
+          if (data.data.length) {
+            const res = data.data[0];
+            const { article, tag } = res;
+            this.setState(prev => ({
+              ...prev,
+              form: {
+                ...prev.form,
+                title: article.title,
+                description: article.description,
+                body: article.body,
+                catId: article.catId,
+                tags: tag.filter(currentTag => currentTag !== '').join(','),
+              },
+              imageUrl: article.imageUrl,
+              isLoading: false,
+            }));
+          }
+        });
+    }
   };
 
-  onDrop = pictures => {
+  onDrop = (pictures) => {
     this.setState(prevState => ({ ...prevState, images: pictures[0] }));
 
     this.setState(prevState => ({
@@ -46,7 +76,14 @@ export class CreateArticle extends React.Component {
         ...prevState.form,
         images: pictures[0],
       },
+      imageUrl: '',
     }));
+
+    this.setState({
+      imageUrl: '',
+      imageDescription:
+        'Ensure you select a JPG|PNG|JPEG',
+    });
   };
 
   onInputChange = ({ target: { name, value } }) => {
@@ -61,15 +98,20 @@ export class CreateArticle extends React.Component {
 
   submitHandler = () => {
     const { form } = this.state;
+    const { match: { params: { slug } } } = this.props;
+
     const article = { ...form, isDraft: false };
-    const { newArticle } = this.props;
-    
-    newArticle(article, 'publish').then((status) => {
-      if (status === 201) {
-        toastr.success('Article successfully created');
+    const { editedArticle } = this.props;
+    this.setState({ isLoading: true });
+
+    editedArticle(slug, article).then((status) => {
+      if (status === 200) {
+        toastr.success('Article Updated successfully');
         this.props.history.push('/');
+        this.setState({ isLoading: false });
       } else {
         toastr.error('Oops something went wrong');
+        this.setState({ isLoading: false });
       }
     });
   };
@@ -87,8 +129,11 @@ export class CreateArticle extends React.Component {
   validateEmptyFields = ({ title, catId, body }) => !(body !== '' && title !== '' && catId !== '');
 
   saveDraft = () => {
+    const { match: { params: { slug }} } = this.props;
+
     const { form } = this.state;
-    const { newArticle } = this.props;
+
+    const { editedArticle } = this.props;
     const article = {
       ...form,
     };
@@ -96,14 +141,13 @@ export class CreateArticle extends React.Component {
       return;
     }
     setTimeout(() => {
-      newArticle(article);
-    }, 5000);
+      editedArticle(slug, article);
+    }, 1000);
   };
 
   render() {
-    const { categories } = this.state;
-    const { errors, isLoading } = this.props;
-
+    const { categories, form, isLoading, imageUrl } = this.state;
+    const { errors } = this.props;
     if (isLoading) {
       return (
         <div>
@@ -112,23 +156,29 @@ export class CreateArticle extends React.Component {
       );
     }
 
+    const {
+      title, body, catId, tags, description,
+    } = form;
+
     return (
       <div className="container">
         <section className="section">
+          {isLoading && <p className="loading">Loading...</p>}
           <div className="row">
             <div className="col-sm-8">
               {errors && errors.title && (
                 <span className="red"> {errors.title} </span>
               )}
               <input
-                autoComplete="off"
                 type="text"
+                autoComplete="off"
                 placeholder="Title"
                 className="Article-Input"
                 required
                 name="title"
                 onChange={this.onInputChange}
                 onKeyDown={this.saveDraft}
+                value={title}
               />
               <input
                 type="text"
@@ -137,17 +187,18 @@ export class CreateArticle extends React.Component {
                 className="Article-Input"
                 name="description"
                 onChange={this.onInputChange}
+                value={description}
               />
               {errors && errors.body && (
                 <span className="red"> {errors.body} </span>
               )}
               <Editor
-                initialValue="Write your story..."
+                initialValue={body}
                 apiKey="z4ea4n1he2tp6mka3q7wwqy50yum2b7i8ub29o6qaoq6rlde"
                 init={{
                   plugins: 'link image code',
                   toolbar:
-                    'undo redo | bold italic | alignleft aligncenter alignright | code',
+                        'undo redo | bold italic | alignleft aligncenter alignright | code',
                 }}
                 onChange={this.handleEditorChange}
                 onKeyDown={this.saveDraft}
@@ -155,10 +206,12 @@ export class CreateArticle extends React.Component {
             </div>
             <div className="col-sm-4">
               <div className="jumbotron">
+                {
+                  imageUrl && <img className="imageUrl" src={imageUrl} alt="Article" />
+                }
                 <ImageUploader
-                  singleImage
                   name="imageInput"
-                  withIcon
+                  withIcon={false}
                   buttonText="Upload image"
                   onChange={this.onDrop}
                   imgExtension={['.jpg', '.gif', '.png', '.gif']}
@@ -179,10 +232,11 @@ export class CreateArticle extends React.Component {
                             aria-label=""
                             name="tags"
                             onChange={this.onInputChange}
+                            value={tags}
                           />
                         </div>
                       </h4>
-                      <p className="card-text"> Pick up to 5 tags and sepereate them with a comma</p>
+                      <p className="card-text">Pick up to 5 tags and sepereate them with a comma </p>
                     </div>
                   </div>
                 </div>
@@ -196,10 +250,10 @@ export class CreateArticle extends React.Component {
                         id="select-category"
                         name="catId"
                         onChange={this.onInputChange}
+                        value={catId}
                       >
-                        <option value="80">Please select a category</option>
-                        {categories &&
-                          categories.map(value => (
+                        {categories
+                          && categories.map(value => (
                             <option key={value.id} value={value.id}>
                               {value.name}
                             </option>
@@ -208,7 +262,13 @@ export class CreateArticle extends React.Component {
                     </div>
                   </div>
                 </div>
-                <button className="btn button" type="submit" onClick={this.submitHandler}> Publish</button>
+                <button
+                  className="btn button"
+                  type="submit"
+                  onClick={this.submitHandler}
+                >
+                  Save Changes
+                </button>
               </div>
             </div>
           </div>
@@ -217,30 +277,30 @@ export class CreateArticle extends React.Component {
     );
   }
 }
-CreateArticle.defaultProps = {
+UpdateArticle.defaultProps = {
   isLoading: false,
-  newArticle: () => {},
+  editedArticle: () => {},
   allCategories: () => {},
 };
-CreateArticle.propTypes = {
-  newArticle: propTypes.func,
+UpdateArticle.propTypes = {
+  editedArticle: propTypes.func,
   isLoading: propTypes.bool,
   allCategories: propTypes.func,
 };
-const mapStateToProps = state => ({
-  isLoading: state.createArticleReducer.isLoading,
+export const mapStateToProps = state => ({
+  isLoading: state.updateArticlesReducer.isLoading,
   errors:
-    state.createArticleReducer.errors &&
-    state.createArticleReducer.errors.message,
+      state.updateArticlesReducer.errors
+      && state.updateArticlesReducer.errors.message,
   categories: state.categoryReducer,
-  articles: state.createArticleReducer,
+  articles: state.updateArticlesReducer,
 });
-const mapDispatchToProps = dispatch => ({
-  newArticle: data => dispatch(createArticle(data)),
+export const mapDispatchToProps = dispatch => ({
+  editedArticle: (slug, data) => dispatch(updateArticle(slug, data)),
   allCategories: () => dispatch(getCategories()),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CreateArticle);
+)(UpdateArticle);
