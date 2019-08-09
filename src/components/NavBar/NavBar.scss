@@ -3,6 +3,8 @@
   height: 50px;
   width: 100%;
   top: 0;
+  margin-bottom: 0;
+  display: flex;
 }
 .nav-link {
   color: white;
@@ -11,4 +13,30 @@
 .navbar-brand {
   color: white;
   font-size: 25px;
+}
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 2000px) {
+  .navbar {
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: 80px;
+    padding: 0;
+  }
+  .navbar-brand {
+    margin: 0 auto;
+  }
+  .container {
+    padding: 12px;
+  }
 }

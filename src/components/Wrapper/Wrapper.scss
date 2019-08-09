@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+}
+.featured-main-wrapper {
+  flex-basis: 100%;
+}
+.trending-main-wrapper {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+}
+.featured-side-wrapper {
+  flex-basis: 60%;
+  flex-direction: column;
+}
+.featured-sub-wrapper {
+  flex-basis: auto;
+}
+.big-wrapper {
+  flex-basis: 40%;
+}
+.small-wrapper {
+  flex-basis: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+  .trending-main-wrapper {
+    flex-direction: column;
+    margin: 10px;
+  }
+}
