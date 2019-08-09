@@ -23,12 +23,18 @@ export default function articleLayout(props) {
         />
         <div className="article-content">
           <h3 className="article-title">{singleArticle.title}</h3>
-          <p className="article-desc">{`${singleArticle.body.substring(0, 250)}...`}</p>
+          <p className="article-desc">{`${singleArticle.body.substring(0, 150)}...`}</p>
           <div className="article-feature">
             <p className="article-like"><img src={svg.play} alt="" /></p>
-            <p className="article-category">Cat</p>
-            <p className="article-comment">Comments</p>
-            <p className="article-view">{singleArticle.views}</p>
+            <p className="article-category">{singleArticle.Category.name}</p>
+            <p className="article-comment">
+              <span>{singleArticle.views}</span>
+              Comments
+            </p>
+            <p className="article-view">
+              <span>{singleArticle.views}</span>
+              Views
+            </p>
           </div>
         </div>
       </div>

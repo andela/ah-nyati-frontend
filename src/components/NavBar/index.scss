@@ -2,13 +2,14 @@
   height: 50px;
   width: 100vw;
   font-size: 500px;
-  padding: 0 100px;
+  padding: 0 15%;
   background-color: $primary-color;
   justify-content: space-between;
   transition: .4s padding ease-in-out;
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 500;
   @include center;
 
   @include responsive(tab-port) {
@@ -52,6 +53,17 @@
   }
 
   &-link {
-    @include link;
+    text-decoration: none;
+    color: $color-white;
+  }
+  &-link:hover {
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  @include responsive(phone) {
+    &-menu {
+      display: none;
+    }
   }
 }

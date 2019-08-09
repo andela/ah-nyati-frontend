@@ -1,11 +1,12 @@
 .article {
   height: 200px;
+  max-width: 1050;
   @include center;
   margin: 0 auto;
-  border-bottom: $font-size-1 solid $color-grey;
+  // transform: translateX(0px);
   transition: .4s transform ease-in-out;
 
-  &:not(:lastchild) {
+  &:not(:last-child) {
     border-bottom: $font-size-1 solid $color-grey;
 
   }
@@ -41,6 +42,21 @@
     }
   }
 
+  &-title {
+    font-size: 1.5rem;
+  }
+
+  &-desc {
+    font-size: .9rem;
+  }
+
+  &-comment,
+  &-view {
+    @include center;
+    flex-direction: column;
+    font-size: 10px;
+  }
+
   &-not-found {
     display: flex;
     justify-content: center;
@@ -49,6 +65,7 @@
 
   @include responsive(phone) {
     flex-direction: column;
+    padding-top: $font-size-10;
     height: $percent-100;
 
     & > img {

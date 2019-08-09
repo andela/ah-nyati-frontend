@@ -1,0 +1,34 @@
+.Pagination {
+  @include center;
+  justify-content: center;
+
+  & ul li {
+    border: $font-size-1 solid $primary-color;
+    padding: 5px 10px;
+    color: $primary-color;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-right: $font-size-10;
+    }
+
+    & a {
+      color: inherit;
+      font-weight: bold;
+      text-decoration: none;
+      outline: none;
+    }
+
+    &.active {
+      color: $color-white;
+      background-color: $primary-color;
+    }
+
+    &.disabled {
+      border: $font-size-1 solid $color-grey-light;
+      color: $color-grey;
+      cursor: not-allowed;
+      background-color: $color-grey-light;
+    }
+  }
+}
