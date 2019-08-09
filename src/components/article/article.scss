@@ -1,0 +1,124 @@
+.Article-Input {
+  border-style: none;
+  width: 100%;
+  padding: 0.5em 0;
+  border-bottom: 3px solid #eaeaea;
+  outline: none;
+  margin-bottom: 35px;
+}
+.Article-Input:hover {
+  border-bottom: 2px solid #2e99d6;
+}
+.Article-Textarea {
+  border-style: none;
+  width: 100%;
+  height: 30em;
+  padding: 0.5em 0;
+  outline: none;
+}
+.font-awesome {
+  font-size: 36px;
+  margin: 0 auto;
+  background-color: #efefef;
+  border-radius: 5px;
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
+}
+.card {
+  background-color: #ffffff;
+  border: 1px solid #bdbdbd;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 25%;
+  margin-bottom: 10px;
+  max-width: 20rem;
+}
+
+.article-form input {
+  border-style: none;
+  width: 100%;
+  padding: 0.5em 0;
+  border-bottom: 2px solid #9d9d9d;
+}
+.jumbotron {
+  background-color: #2e99d6;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  height: auto;
+  width: auto;
+}
+.tag-input-field {
+  border-style: none;
+  width: 80%;
+  border-bottom: 3px solid #eaeaea;
+  outline: none;
+  font-weight: normal;
+}
+.tag-input-field:hover {  
+    border-bottom: 2px solid #2e99d6;
+}
+.button {
+  background: #fff;
+  color: #2e99d6;
+  border-style: none;
+  border-radius: 30px;
+  font-weight: normal;
+}
+.section {
+    padding: 7rem 1.5rem;
+}
+.tag-container {
+    background-color: #FFFFFF;
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 10px;
+    min-height: 40%;
+    margin-bottom: 10px;
+}
+#category-display {
+    text-align: center;
+    position: relative;
+    top: 30%;
+    width: 95%;
+}
+
+#category-display select {
+    padding: 0.5em;
+    height: 2.5em;
+    width: 100%;
+    background: #d8ebf7;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    appearance: button;
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    outline: none;
+    border-radius: 20px;
+}
+#category-display::before {
+    content: "\F368";
+    font-family: 'Font Awesome 5 Free';
+    position: absolute;
+    font-weight: 200;
+    top: 0;
+    right: -0.4em;
+    width: 2em;
+    height: 2.5em;
+    border: 1px solid #2e99d6;
+    border-radius: 20px;
+    background: #F5F5F5;
+    text-align: center;
+    line-height: 2.5em;
+    color: #2e99d6;
+    font-size: 1.0em;
+    pointer-events: none;
+}
+
+.red {
+  color: red
+}
+.chooseFileButton  {
+  background-color: #2e99d6 !important;
+}
