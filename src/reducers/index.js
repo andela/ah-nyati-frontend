@@ -3,7 +3,9 @@ import authReducer from './authReducer';
 import articleReducer from './articleReducer';
 import errorReducer from './errorReducer';
 import articles from './articles';
-import authReducer from './authReducer.js';
+import authReducer from './authReducer';
+import articleReducer from './articleReducer';
+import errorReducer from './errorReducer';
 
 export default combineReducers({
   auth: authReducer,
