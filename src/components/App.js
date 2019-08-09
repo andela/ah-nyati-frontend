@@ -1,28 +1,26 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import NavBar from './NavBar/NavBar';
 import Homepage from '../views/Homepage';
-import Login from '../views/Login';
-import Navbar from './NavBar/NavBar';
-import Register from '../views/Register';
+import Register from '../views/register';
+import LoginForm from './LoginForm/LoginForm';
 import About from '../views/about';
-
-// import Error from '../views/Error';
+import Dashboard from '../views/Dashboard';
 import NotFound from '../views/NotFound';
 
-/**
- * App component, renders all the other components.
- */
 const App = () => (
   <div>
-    <Navbar />
+    <NavBar />
     <Switch>
       <Route exact path="/" component={Homepage} />
       <Route path="/register" component={Register} />
-      <Route path="/login" component={Login} />
+      <Route path="/login" component={LoginForm} />
       <Route path="/about" component={About} />
+      <Route path="/dashboard" component={Dashboard} />
       <Route component={NotFound} />
     </Switch>
   </div>
 );
+
 
 export default App;
