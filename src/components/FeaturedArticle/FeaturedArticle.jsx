@@ -15,7 +15,7 @@ const FeaturedArticle = (props) => {
   } = customClass;
   return (
     <div className={`featured-article__wrapper ${wrapperClass}`}>
-      <img src={imageUrl || '/src/assets/image.png'} alt="" className={`featured-article__image ${imageClass}`} />
+      <img src={imageUrl || ''} alt="" className={`featured-article__image ${imageClass}`} />
       <h3 className={`featured-article__title ${titleClass}`}>{title}</h3>
     </div>
   );

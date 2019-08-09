@@ -13,19 +13,19 @@ const FeaturedSection = ({ data }) => {
     },
     {
       title: 'Article 2',
-      imageUrl: '/src/assets/butterfly.svg',
+      imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357745/AH-assets/rose.png',
     },
     {
       title: 'Article 3',
-      imageUrl: '/src/assets/flower.svg',
+      imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357741/AH-assets/rose.svg',
     },
     {
       title: 'Article 4',
-      imageUrl: '/src/assets/emerald.svg',
+      imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357742/AH-assets/rose.svg',
     },
     {
       title: 'Article 5',
-      imageUrl: '/src/assets/rose.svg',
+      imageUrl: 'https://res.cloudinary.com/free-spirit/image/upload/v1565357745/AH-assets/rose.svg',
     },
   ];
 
