@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
-import NavBar from './NavBar/NavBar';
 import Homepage from '../views/Homepage';
+import Navbar from './NavBar/Index';
 import Register from '../views/register';
 import Login from './LoginForm/Index';
 import About from '../views/about';
@@ -12,7 +12,7 @@ import NotFound from '../views/NotFound';
 const App = () => (
   <div>
     <Notifications />
-    <NavBar />
+    <Navbar />
     <Switch>
       <Route exact path="/" component={Homepage} />
       <Route path="/register" component={Register} />

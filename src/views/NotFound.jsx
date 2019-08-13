@@ -1,5 +1,5 @@
 import React from 'react';
-import Error from '../components/Error/Error';
+import Error from '../components/Error/Index';
 
 /**
  * Error Component,renders when a user visits an unmatched url

@@ -2,12 +2,16 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import NavBar from '../src/components/NavBar/Index';
+import Wrapper from '../src/components/Wrapper/Index';
 
-describe('Navbar', () => {
+describe('Wrapper', () => {
   let app;
   beforeEach(() => {
-    app = shallow(<NavBar />);
+    app = shallow(
+      <Wrapper>
+        <div>Test Wrapper</div>
+      </Wrapper>,
+    );
   });
 
   it('renders successfully', () => {
@@ -16,13 +20,5 @@ describe('Navbar', () => {
 
   it('renders a div component', () => {
     expect(app.find('div').length).toBe(2);
-  });
-
-  it('renders a nav component', () => {
-    expect(app.find('nav').length).toBe(1);
-  });
-
-  it('renders a svg component', () => {
-    expect(app.find('svg').length).toBe(1);
   });
 });
