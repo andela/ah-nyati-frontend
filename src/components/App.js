@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
 import { ToastContainer } from 'react-toastify';
-import NavBar from './NavBar/NavBar';
+import NavBar from './NavBar/Index';
 import Homepage from '../views/Homepage';
 import Register from '../views/register';
 import Login from './LoginForm/Index';
