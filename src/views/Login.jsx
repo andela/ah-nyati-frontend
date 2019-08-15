@@ -1,19 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LoginForm } from '../components/LoginForm/Index';
 
-/**
- * Dummy Login Page, should allow the user to log into the app successfully
- * it also holds the link to the dummy Home page
- */
+
 const Login = () => (
   <div>
-    <h1>Welcome To Authors Haven Login Page.</h1>
-    <h3>Good to see you</h3>
-    <ul>
-      <li>
-        <Link to="/">CLICK HERE TO GO BACK TO THE HOMEPAGE</Link>
-      </li>
-    </ul>
+    <LoginForm />
   </div>
 );
 
