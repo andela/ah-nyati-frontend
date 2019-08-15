@@ -11,10 +11,40 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  padding: 60px 100px 0 100px;
+  padding-top: 40px !important;
   transition: .4s padding ease-in-out;
+}
+
+.padding-both {
+  padding: 0 $percent-15;
 
   @include responsive(tab-port) {
-    padding: 60px 30px 0 30px;
+    padding: 0 $font-size-30;
+  }
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.search-form {
+  outline: none;
+  padding-left: 10px;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid $color-grey;
+  width: 300px;
+
+  @include responsive(phone) {
+    width: 100%;
+  }
+}
+
+.top-section {
+  display: block;
+
+  @include responsive(phone) {
+    margin-top: 1rem !important;
+    flex-direction: column;
   }
 }

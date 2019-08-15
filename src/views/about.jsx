@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
  * it also holds the link to the dummy Home page
  */
 const About = () => (
-  <div>
+  <div className="mt-4">
     <h1>Welcome To Authors Haven About Page.</h1>
     <h3>Good to see you</h3>
     <ul>

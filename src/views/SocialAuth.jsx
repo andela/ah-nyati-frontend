@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import queryString from 'querystring';
 import { history as historyPropTypes, location as locationPropTypes } from 'history-prop-types';
 import { socialLogin } from '../actions/authActions';
-import Loader from '../components/Loader/Index';
+import Loader from '../components/Loader';
 import Helpers from '../helpers/helpers';
 
 const { redirectToDashboard } = Helpers;

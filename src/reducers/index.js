@@ -4,7 +4,8 @@ import errorReducer from './errorReducer';
 import resetReducer from './resetReducer';
 import articleReducer from './articleReducer';
 import registerErrorsReducer from './registerErrorsReducer';
-import articles from './articles';
+import articles from './articlesReducer';
+import user from './getUserReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
   article: articleReducer,
   signupErrors: registerErrorsReducer,
   articles,
+  user,
 });

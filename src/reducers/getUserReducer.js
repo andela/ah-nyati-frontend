@@ -1,10 +1,10 @@
-import { FETCH_ALL_ARTICLE } from '../../actions/types';
+import { GET_CURRENT_USER } from '../actions/types';
 
 const initState = {};
 
 export default function (state = initState, action) {
   switch (action.type) {
-    case FETCH_ALL_ARTICLE:
+    case GET_CURRENT_USER:
       return action.payload;
     default:
       return state;

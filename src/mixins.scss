@@ -10,9 +10,9 @@
 
 @mixin responsive($breakpoint) {
 
-  // 600px
+  // 660px
   @if $breakpoint==phone {
-    @media (max-width: 600px) {
+    @media (max-width: 660px) {
       @content
     };
   }
@@ -20,13 +20,6 @@
   // 900px
   @if $breakpoint==tab-port {
     @media (max-width: 900px) {
-      @content
-    };
-  }
-
-  // 1200px
-  @if $breakpoint==tab-land {
-    @media (max-width: 1200px) {
       @content
     };
   }

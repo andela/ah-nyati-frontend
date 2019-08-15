@@ -108,6 +108,6 @@ describe('Homepage', () => {
 
     app = shallow(<Homepage store={store} />);
     res = app.dive().dive();
-    expect(res.find('Loader').length).toBe(1);
+    expect(res.find('Index').length).toBe(1);
   });
 });

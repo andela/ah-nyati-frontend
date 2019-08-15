@@ -1,0 +1,320 @@
+.navbar {
+  height: 6vh;
+  width: 100vw;
+  font-size: $rem-1_2;
+  padding: 0 $percent-15;
+  background-color: $primary-color;
+  justify-content: space-between;
+  transition: .4s padding ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  @include center;
+
+  &-sides {
+    padding: 0 $percent-15;
+  
+    @include responsive(tab-port) {
+      padding: 0;
+      padding: 0 $font-size-30;
+    }
+  }
+
+  @include responsive(tab-port) {
+    padding: 0 $font-size-30;
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    color: $color-white;
+
+    & > svg {
+      width: 60px;
+      height: 50px;
+    }
+
+    &__title {
+      @include link;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    &-big-title {
+      display: block;
+
+      @include responsive(phone) {
+        display: none;
+      }
+    }
+
+    &-small-title {
+      display: none;
+
+      @include responsive(phone) {
+        display: block;
+      }
+    }
+
+
+  }
+
+  &-menu {
+    list-style: none;
+    margin-bottom: 0;
+  }
+
+  &-item {
+    display: inline-block;
+    color: $color-white;
+    padding: 7px;
+    transition: .4s all ease-in-out;
+
+    &:not(:last-child) {
+      margin-right: $font-size-10;
+    }
+
+    &:hover {
+      color: $color-red;
+      transform: scale(1.2);
+    }
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $color-white;
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  &-burger {
+    padding: 0 1rem;
+    display: none;
+    outline: none;
+    color: $color-white;
+    cursor: pointer;
+
+    div {
+      width: $font-size-30;
+      height: 3px;
+      margin: 5px;
+      background-color: $color-white;
+      transition: all 0.5s;
+    }
+  }
+
+  &-toggle .navbar-burger-line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  &-toggle .navbar-burger-line2 {
+    opacity: 0;
+  }
+
+  &-toggle .navbar-burger-line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  &-login {
+    display: flex;
+
+    &-menu {
+      list-style: none;
+      margin-bottom: 0;
+    }
+
+    &-item {
+      display: inline-block;
+      color: $color-white;
+      padding: 7px;
+      transition: .4s all ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: $font-size-10;
+      }
+
+      &:hover {
+        color: $color-red;
+        transform: scale(1.2);
+      }
+    }
+
+    &-user {
+      margin-left: $font-size-10;
+      @include center;
+      position: relative;
+  
+      & > div {
+        outline: none;
+        cursor: pointer;
+
+        & >img {
+          height: 40px;
+          width: 40px;
+          border-radius: 100%;
+          border: $font-size-1 solid $color-white;
+          margin-right: $font-size-5;
+        }
+          
+        & > i {
+          color: $color-white;
+        }
+      } 
+
+      &-dropdown {
+        position: absolute;
+        right: 0;
+        top: 5vh;
+        background-color: $color-grey-light;
+        border-bottom-left-radius: $font-size-5;
+        border-bottom-right-radius: $font-size-5;
+        height: 0;
+        width: 150px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .4s ease-in-out;
+
+        &-active {
+          height: 170px;
+          opacity: 1;
+          visibility: visible;
+        }
+
+        &-menu {
+          list-style: none;
+          opacity: 0;
+          transition: opacity .8s ease-in-out;
+
+          &-active {
+            opacity: 1;
+          }
+        }
+
+        &-item {
+          color: $color-black;
+          padding: 7px;
+          transition: all .5s ease-in-out;
+          
+          &:hover {
+            background-color: $primary-color;
+            color: $color-white;
+          }
+        }
+
+        &-link {
+          text-decoration: none;
+          color: inherit;
+          transition: margin-left .4s ease-in-out;
+
+          &:hover {
+            text-decoration: none;
+            color: inherit;
+            margin-left: 10px;
+          }
+        }
+      }
+
+      &-username {
+        text-transform: capitalize;
+        color: $color-white;
+        font-size: $rem-1;
+        margin-right: $font-size-5;
+      }
+    }
+  }
+
+  &-notification {
+    position: relative;
+    outline: none;
+
+    &:hover {
+      color: $color-red;
+      transform: scale(1);
+    }
+
+    &-dropdown {
+      position: absolute;
+      right: 0;
+      top: 5vh;
+      background-color: $color-grey-light;
+      border-bottom-left-radius: $font-size-5;
+      border-bottom-right-radius: $font-size-5;
+      height: 0;
+      width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .4s ease-in-out;
+
+      &-active {
+        height: 190px;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    &-message {
+      color: $color-black;
+      font-size: $rem-1;
+      margin-bottom: .25rem;
+      padding: .25rem 0;
+      padding-left: $font-size-10;
+      border-bottom: $font-size-1 solid $color-grey;
+      cursor: pointer;
+      transition: all .4s ease-in-out;
+
+      &:hover {
+        color: $color-white;
+        background-color: $primary-color;
+      }
+    }
+
+    &-all {
+      font-size: $rem-1;
+      cursor: pointer;
+      color: $primary-color;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  @include responsive(tab-port) {
+    &-menu {
+      position: absolute;
+      right: 0;
+      height: 94vh;
+      top: 6vh;
+      background: inherit;
+      display: block;
+      text-align: center;
+      padding-top: 1.5rem;
+      margin-right: -0.5rem;
+      font-size: 2rem;
+      width: 50%;
+      transform: translateX(100%);
+      background-color: $primary-color-light;
+      transition: transform 0.5s ease-in;
+
+      &-active {
+        transform: translateX(0);
+        background-color: $primary-color-light;
+      }
+    }
+
+    &-item {
+      opacity: 1;
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+    }
+
+    &-burger {
+      display: block;
+    }
+  }
+}
