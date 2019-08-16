@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
+import { Link } from 'react-router-dom';
 import Socials from '../Socials/Index';
 import { loginUser } from '../../actions/authActions';
 import './LoginForm.scss';
+
 /**
  *
  *
@@ -97,6 +99,7 @@ export class LoginForm extends Component {
               )}
             </div>
             <input type="submit" id="submit" className="btn-block" onClick={this.onSubmit} />
+            <Link className="pswd" to="/resetPassword">Forgot password?</Link>
             <div className="lil-soc">
               <Socials />
             </div>
