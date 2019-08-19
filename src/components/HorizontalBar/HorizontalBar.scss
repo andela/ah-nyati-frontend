@@ -1,0 +1,41 @@
+.bar {
+  display: flex;
+  height: 60px;
+  margin: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  background-image: url('https://res.cloudinary.com/free-spirit/image/upload/v1565357742/AH-assets/horizontal-bar.png');
+  background-size: cover;
+  border-radius: 5px;
+  justify-content: center;
+}
+.bar-image {
+  width: 100%;
+  height: auto;
+}
+.bar-title {
+  align-self: center;
+  margin: 0;
+  font-size: 26px;
+}
+
+@media only screen and (max-width: 600px) {
+  .bar-title {
+    font-size: 20px;
+  }
+  .bar {
+    height: 40px;
+    background-image: url('https://res.cloudinary.com/free-spirit/image/upload/v1565693794/horizontal-bar-small.png');
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .bar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .bar-title {
+    font-size: 35px;
+  }
+}

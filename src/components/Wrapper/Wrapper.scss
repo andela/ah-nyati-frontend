@@ -1,0 +1,29 @@
+.featured-main-wrapper {
+  flex-basis: 100%;
+}
+.trending-main-wrapper {
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  margin: -5px;
+  margin-bottom: 40px;
+}
+.featured-side-wrapper {
+  padding: 0;
+  margin: 0;
+}
+.big-wrapper {
+  padding: 0;
+  margin: 0;
+}
+.small-wrapper {
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .trending-main-wrapper {
+    flex-direction: column;
+    margin: 2px;
+    margin-bottom: 40px;
+  }
+}

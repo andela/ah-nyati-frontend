@@ -2,7 +2,7 @@ import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 
-import Error from '../src/components/Error/Error';
+import Error from '../src/components/Error/Index';
 
 describe('Error', () => {
   let app;
