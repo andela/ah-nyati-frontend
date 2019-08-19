@@ -8,6 +8,7 @@ module.exports = {
     '!src/store/index.js',
     '!src/reducers/index.js',
     '!src/actions/types.js',
+    '!src/utils/decoded.js',
     '!**/node_modules/**',
     '!**/vendor/**',
   ],

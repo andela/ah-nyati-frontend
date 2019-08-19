@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './PasswordReset.scss';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FormContainer from './FormDisplay';
@@ -31,7 +30,7 @@ export class ResetEmail extends Component {
     const { reset: { isLoading } } = this.props;
     return (
       <FormContainer>
-        <form className="col-md-5 col-sm-5" onSubmit={this.onButtonSubmit}>
+        <form className="col-md-5 col-sm-5 reset-form" onSubmit={this.onButtonSubmit}>
           <div className="form-group">
             <p>Email:</p>
             <input

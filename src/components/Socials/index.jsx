@@ -1,8 +1,7 @@
 import React from 'react';
-import './socials.scss';
 
 const socials = () => (
-  <div className="d-flex">
+  <div className="d-flex row social-login">
     <div className="col-md-3">
       <a href="hello.com">
         <i className="fab fa-google-plus social" />

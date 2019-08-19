@@ -39,9 +39,6 @@ describe('<LoginForm />', () => {
     expect(app.find('div').length).toBe(9);
   });
 
-  it('renders a h1 component', () => {
-    expect(app.find('h1').length).toBe(1);
-  });
   it('renders a h3 component', () => {
     expect(app.find('h3').length).toBe(1);
   });

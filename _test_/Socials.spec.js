@@ -1,9 +1,7 @@
-
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-
-import Socials from '../src/components/Socials/Index';
+import Socials from '../src/components/Socials';
 
 describe('Socials component', () => {
   let component;

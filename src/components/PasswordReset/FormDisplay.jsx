@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './PasswordReset.scss';
 
 const FormContainer = props => (
   <div>
     <div className="cont">
-      <div className="form-div row">
-        <div className="col-sm-7">
-          <blockquote className="intro">
+      <div className="form-div form-div3 row">
+        <div className="col-sm-7 content">
+          <h3 className="intro2">
             {' '}
                 “Write. Rewrite. When not writing or rewriting,
                 read. I know of no shortcuts.”
@@ -19,7 +18,7 @@ const FormContainer = props => (
             {' '}
 
             {' '}
-          </blockquote>
+          </h3>
         </div>
         {props.children}
       </div>
