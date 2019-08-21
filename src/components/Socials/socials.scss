@@ -1,6 +1,21 @@
+.tool-tip {
+  background-color: #2e99d6e6;
+  color: #ffffff;
+}
+.google-icon {
+  width: 70px;
+  height: auto;
+}
 @media (max-width: 600px) {
   .social-login {
     display: flex !important;
+  }
+
+}
+@media (max-width: 1024px) {
+  .google-icon {
+    width: 50px;
+    height: auto;
   }
 
 }

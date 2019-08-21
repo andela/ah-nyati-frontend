@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
 import { SET_CURRENT_USER, GET_ERRORS } from '../src/actions/types';
 import mockLoginData from '../src/utils/loginMockStore';
-import { loginUser } from '../src/actions/authActions';
+import { loginUser, socialLogin } from '../src/actions/authActions';
 import axios from '../src/config/axiosInstance';
 
 const mockStore = configureMockStore([thunk]);
@@ -51,5 +51,16 @@ describe('Login actions', () => {
       expect(store.getActions()).toEqual(expectedActions);
       done();
     });
+  });
+  it('logs in a user using social account details', () => {
+    const expectedActions = [
+      {
+        payload: successResponse.data[0],
+        type: SET_CURRENT_USER,
+      },
+    ];
+    store = mockStore({});
+    store.dispatch(socialLogin('eyjdhdkkdjfk.nfhhgdsjjsggdhjey488uuu', successResponse.data[0]));
+    expect(store.getActions()).toEqual(expectedActions);
   });
 });

@@ -24,7 +24,7 @@ describe('ArticleCard', () => {
       text={text}
       date={date}
       readTime={time}
-      likeCount={likes}
+      likeCount={parseInt(likes, 10)}
       viewCount={views}
       count={2}
     />);

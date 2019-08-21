@@ -50,7 +50,7 @@ ArticleCard.propTypes = {
   date: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   readTime: PropTypes.string.isRequired,
-  likeCount: PropTypes.string.isRequired,
+  likeCount: PropTypes.number.isRequired,
   viewCount: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
 };

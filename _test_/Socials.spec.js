@@ -23,6 +23,10 @@ describe('Socials component', () => {
   });
 
   it('renders an i tag', () => {
-    expect(component.find('i').length).toBe(4);
+    expect(component.find('i').length).toBe(3);
+  });
+
+  it('renders an img tag', () => {
+    expect(component.find('img').length).toBe(1);
   });
 });

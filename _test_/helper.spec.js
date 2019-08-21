@@ -1,10 +1,15 @@
+import { createMemoryHistory } from 'history';
+
 import Helpers from '../src/helpers/helpers';
+
+const history = createMemoryHistory('/login');
 
 const {
   setCount,
   removeDuplicate,
   checkDuplicate,
   stringToBoolean,
+  redirectToDashboard,
 } = Helpers;
 
 const duplicatedArray = [
@@ -82,6 +87,12 @@ describe('Helpers', () => {
       expect(stringToBoolean('kdood')).toEqual(undefined);
       expect(stringToBoolean('fejjfkk')).toEqual(undefined);
       expect(stringToBoolean(null)).toEqual(undefined);
+    });
+  });
+
+  describe('redirectToDashboard', () => {
+    it('redirects page to dashboard', () => {
+      redirectToDashboard(true, history);
     });
   });
 });

@@ -61,7 +61,7 @@ export class LoginForm extends Component {
             <div>
               <p className="msg">Login with</p>
             </div>
-            <Socials />
+            <Socials action="Login" />
           </div>
           <form className="col-lg-5 col-md-10 main-form login-form" onSubmit={this.onSubmit}>
             { errors.auth && <div className="err">Invalid email or password</div> }
@@ -100,7 +100,7 @@ export class LoginForm extends Component {
             <input type="submit" id="submit" className="btn-block" onClick={this.onSubmit} />
             <Link className="pswd" to="/resetPassword">Forgot password?</Link>
             <div className="lil-soc">
-              <Socials />
+              <Socials action="Login" />
             </div>
           </form>
         </div>

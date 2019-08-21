@@ -13,7 +13,6 @@ const initialState = {
 
 const articleReducer = (state = initialState, action) => {
   const { type, payload } = action;
-  // const { articles, totalCount } = payload;
   switch (type) {
     case FETCH_ARTICLES:
       return {
