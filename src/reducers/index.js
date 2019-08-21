@@ -9,10 +9,10 @@ import articles from './articlesReducer';
 import user from './getUserReducer';
 import success from './success';
 import singleArticleReducer from './singleArticleReducer';
-
 import createArticleReducer from './article/article';
 import fetchCategoryReducer from './category/category';
 import updateArticlesReducer from './article/update';
+import profileReducer from './profileReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -30,4 +30,5 @@ export default combineReducers({
   fetchCategoryReducer,
   updateArticlesReducer,
 
+  profile: profileReducer,
 });
