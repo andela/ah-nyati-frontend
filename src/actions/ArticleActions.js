@@ -16,13 +16,13 @@ class ArticleActions {
         dispatch({
           type: FETCH_ARTICLES,
           payload: {
-            articles: res.data.data[0].articles,
+            articles: res.data.data[0].allArticles,
             totalCount: res.data.data[0].totalArticles,
           },
         });
         dispatch({
           type: SET_CURRENT_ARTICLES,
-          payload: res.data.data[0].articles,
+          payload: res.data.data[0].allArticles,
         });
       })
       .catch(error => dispatch({

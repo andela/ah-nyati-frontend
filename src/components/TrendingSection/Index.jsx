@@ -27,13 +27,13 @@ const TrendingSection = (props) => {
             imageUrl,
             date,
             readTime,
-            likeCount,
           } = trendingArticles[index % 5];
           const {
             title,
             body,
             views,
-          } = article;
+          } = article.article;
+          const { likes } = article;
 
           key += 1;
 
@@ -44,7 +44,7 @@ const TrendingSection = (props) => {
               text={body}
               date={date}
               readTime={readTime}
-              likeCount={likeCount}
+              likeCount={likes}
               viewCount={views}
               count={count}
               key={key}
