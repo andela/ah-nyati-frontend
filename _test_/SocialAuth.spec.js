@@ -73,7 +73,7 @@ describe('SocialAuth', () => {
   });
 
   it('renders a Loader component', () => {
-    expect(app.find('Loader').length).toBe(1);
+    expect(app.find('Index').length).toBe(1);
   });
 
   it('has a mapStateToProps function', () => {

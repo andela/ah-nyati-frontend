@@ -9,7 +9,7 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.jsx', '.scss', '.css'],
   },
   module: {
     rules: [
@@ -19,12 +19,27 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.s?css$/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+          'import-glob-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: ['./src/variables.scss', './src/mixins.scss'],
+              localsConvention: 'camelCase',
+              modules: true,
+              import: true,
+            },
+          },
+        ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
-        loader: 'url-loader?limit=8000&name=images/[name].[ext]',
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        loader: ['url-loader?limit=8000&name=images/[name].[ext]', 'file-loader'],
       },
     ],
   },

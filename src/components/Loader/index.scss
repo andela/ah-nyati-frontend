@@ -1,0 +1,30 @@
+.loader {
+  @include center;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+
+  &__reload {
+    margin-top: $font-size-10;
+    font-size: $font-size-20;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s all ease-in-out;
+
+    @include responsive(phone) {
+      font-size: $font-size-15
+    }
+
+    &-show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &-click {
+      color: $primary-color;
+      margin-left: $font-size-5;
+      cursor: pointer;
+      font-weight: 700;
+    }
+  }
+}

@@ -2,23 +2,35 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
 import { ToastContainer } from 'react-toastify';
-import NavBar from './NavBar/Index';
+import jwtDecode from 'jwt-decode';
+import NavBar from './NavigationBar';
 import Homepage from '../views/Homepage';
 import Register from '../views/Register';
 import Login from './LoginForm/Index';
 import About from '../views/about';
 import Dashboard from '../views/Dashboard';
-
 import NotFound from '../views/NotFound';
 import SocialAuth from '../views/SocialAuth';
 import ResetPassword from '../views/ResetPassword';
 import PasswordReset from './PasswordReset/PasswordReset';
-import 'react-toastify/dist/ReactToastify.css';
+import Articles from '../views/Articles';
+import store from '../store';
+import setAuthToken from '../utils/setAuthToken';
+import { setCurrentUser } from '../actions/authActions';
+
+const token = localStorage.jwtToken;
+let loggedInUser = {};
+/* istanbul ignore next */
+if (token) {
+  setAuthToken(token);
+  const decoded = jwtDecode(token);
+  loggedInUser = store.dispatch(setCurrentUser(decoded));
+}
 
 const App = () => (
   <div>
     <Notifications />
-    <NavBar />
+    <NavBar user={loggedInUser} />
     <ToastContainer />
     <Switch>
       <Route exact path="/" component={Homepage} />
@@ -30,10 +42,10 @@ const App = () => (
       <Route path="/resetPassword" component={ResetPassword} />
       <Route path="/newpassword" component={PasswordReset} />
       <Route path="/socialAuth" component={SocialAuth} />
+      <Route path="/articles" component={Articles} />
       <Route component={NotFound} />
     </Switch>
   </div>
 );
-
 
 export default App;

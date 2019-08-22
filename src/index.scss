@@ -1,13 +1,50 @@
-html, body {
-  width: 100%;
-}
-body {
-  font-family: 'Roboto', sans-serif;
-}
-* {
+*{
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
+
 .home-page-wrapper {
   margin: 0 auto;
   width: 90%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding-top: 40px !important;
+  transition: .4s padding ease-in-out;
+}
+
+.padding-both {
+  padding: 0 $percent-15;
+
+  @include responsive(tab-port) {
+    padding: 0 $font-size-30;
+  }
+}
+
+.font-bold {
+  font-weight: 700 !important;
+}
+
+.search-form {
+  outline: none;
+  padding-left: 10px;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid $color-grey;
+  width: 300px;
+
+  @include responsive(phone) {
+    width: 100%;
+  }
+}
+
+.top-section {
+  display: block;
+
+  @include responsive(phone) {
+    margin-top: 1rem !important;
+    flex-direction: column;
+  }
 }

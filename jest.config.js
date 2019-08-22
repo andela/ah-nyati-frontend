@@ -43,6 +43,6 @@ module.exports = {
   transform: {
     '^.+\\.jsx?$': 'babel-jest',
   },
-  transformIgnorePatterns: ['/node_modules/'],
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!(react-spring)/)'],
   verbose: true,
 };

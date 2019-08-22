@@ -1,27 +1,36 @@
 import React from 'react';
 import expect from 'expect';
-import { shallow } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
-import Loader from '../src/components/Loader/Index';
+import Loader from '../src/components/Loader';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('Loader', () => {
-  let app;
-  beforeEach(() => {
-    app = shallow(<Loader loading />);
-  });
+  describe('Loader Component', () => {
+    let app;
 
-  it('renders successfully', () => {
-    app = shallow(<Loader loading />);
-    expect(app).toBeDefined();
-  });
+    beforeEach(() => {
+      app = shallow(<Loader />);
+    });
 
-  it('renders successfully  if loading is false', () => {
-    app = shallow(<Loader loading={false} />);
-    expect(app).toBeDefined();
-  });
+    it('renders successfully', () => {
+      expect(app).toBeDefined();
+    });
 
-  it('renders a div component', () => {
-    app = shallow(<Loader loading />);
-    expect(app.find('div').length).toBe(2);
+    it('Check for div', () => {
+      expect(app.find('div').length).toBe(3);
+    });
+
+    it('click timeOut', () => {
+      const inst = app.instance();
+      inst.timeOut();
+    });
+
+    it('click reload', () => {
+      const inst = app.instance();
+      inst.reload();
+    });
   });
 });

@@ -5,7 +5,7 @@ import FeaturedSection from '../components/FeaturedSection/Index';
 import TrendingSection from '../components/TrendingSection/Index';
 import HorizontalBar from '../components/HorizontalBar/Index';
 import ArticleActions from '../actions/ArticleActions';
-import Loader from '../components/Loader/Index';
+import Loader from '../components/Loader';
 import Helpers from '../helpers/helpers';
 
 const { fetchArticles, getMoreArticles } = ArticleActions;
@@ -68,7 +68,7 @@ export class Homepage extends Component {
       return <Loader />;
     }
     return (
-      <div className="home-page-wrapper">
+      <div className="home-page-wrapper pt-5">
         <FeaturedSection data={currentArr} />
         <HorizontalBar />
         <TrendingSection

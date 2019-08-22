@@ -13,7 +13,7 @@ const style = {
 const { isVerified } = decodeToken();
 
 const Dashboard = () => (
-  <div>
+  <div className="mt-4">
     <h1>Welcome To Authors Haven Login Page.</h1>
     {
       isVerified === false && (
