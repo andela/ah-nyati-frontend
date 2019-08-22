@@ -19,6 +19,7 @@ export class ResetEmail extends Component {
     this.setState({ userEmail });
   };
 
+
   onButtonSubmit = (event) => {
     event.preventDefault();
     const { userEmail } = this.state;
@@ -39,6 +40,7 @@ export class ResetEmail extends Component {
               className="form-control"
               name="email"
               onChange={this.onInputChange}
+              required
             />
 
           </div>

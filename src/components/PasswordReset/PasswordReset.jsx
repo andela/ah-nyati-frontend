@@ -43,6 +43,8 @@ export class PasswordReset extends Component {
     const userEmail = query2.get('email');
     if (password.password !== confirmPassword.confirmPassword) {
       toast.error("Passwords don't match");
+    } else if (password.password.length < 8 || password.password.length > 15) {
+      toast.error('Password must be between 8 to 15 characters long.');
     } else {
       resetpassword(password, userToken, userEmail);
     }
@@ -63,6 +65,7 @@ export class PasswordReset extends Component {
                 name="password"
                 id="password"
                 onChange={this.onInputChange}
+                required
               />
             </div>
 
@@ -74,6 +77,7 @@ export class PasswordReset extends Component {
                 name="password"
                 id="confirmPassword"
                 onChange={this.onConfirmPasswordChange}
+                required
               />
             </div>
 

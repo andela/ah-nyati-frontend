@@ -112,6 +112,14 @@ describe('App', () => {
     app.find('input').at(2).simulate('click', event);
   });
   it('Simulates a form submit event', () => {
+    app.setState({
+      password: {
+        password: 'password',
+      },
+      confirmPassword: {
+        confirmPassword: '1password',
+      },
+    });
     app.find('form').simulate('submit', { preventDefault: jest.fn() });
   });
   
@@ -127,5 +135,33 @@ describe('App', () => {
     app.find('form').simulate('submit', { preventDefault: jest.fn() });
     expect(app.state().password.password).toBe('password');
     expect(app.state().confirmPassword.confirmPassword).toBe('1password');
+  });
+
+  it('Simulate a event on form password input for an invalid password', () => {
+    app.setState({
+      password: {
+        password: 'pass',
+      },
+      confirmPassword: {
+        confirmPassword: 'pass',
+      },
+    });
+    app.find('form').simulate('submit', { preventDefault: jest.fn() });
+    expect(app.state().password.password).toBe('pass');
+    expect(app.state().confirmPassword.confirmPassword).toBe('pass');
+  });
+
+  it('Simulate a event on form password input for an invalid password With input greater than 15', () => {
+    app.setState({
+      password: {
+        password: 'thisismorethanfifiteen',
+      },
+      confirmPassword: {
+        confirmPassword: 'thisismorethanfifiteen',
+      },
+    });
+    app.find('form').simulate('submit', { preventDefault: jest.fn() });
+    expect(app.state().password.password).toBe('thisismorethanfifiteen');
+    expect(app.state().confirmPassword.confirmPassword).toBe('thisismorethanfifiteen');
   });
 });
