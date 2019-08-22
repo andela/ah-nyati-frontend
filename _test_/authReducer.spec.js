@@ -25,6 +25,22 @@ describe('Login reducer', () => {
       loading: false,
     });
   });
+  it('should set loading to true', () => {
+    expect(reducer(initialState, {
+      type: actionTypes.AUTH_LOADING,
+    })).toEqual({
+      ...initialState,
+      loading: true,
+    });
+  });
+  it('should remove current user', () => {
+    expect(reducer(initialState, {
+      type: actionTypes.REMOVE_CURRENT_USER,
+    })).toEqual({
+      ...initialState,
+      loading: false,
+    });
+  });
 
   it('should successfully store the token upon login', () => {
     expect(reducer(initialState, {

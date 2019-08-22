@@ -264,6 +264,7 @@ export class CreateArticle extends React.Component {
     );
   }
 }
+
 CreateArticle.defaultProps = {
   isLoading: false,
   newArticle: () => {},
