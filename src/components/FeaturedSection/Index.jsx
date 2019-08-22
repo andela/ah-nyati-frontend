@@ -41,7 +41,7 @@ const FeaturedSection = ({ data }) => {
     titleClass: 'small-title',
   };
 
-  const { title: bigArticleTitle, imageUrl: bigArticleImageUrl } = data[0];
+  const { title: bigArticleTitle, imageUrl: bigArticleImageUrl } = data[0].article;
   featuredArticles.splice(0, 1);
   return (
     <Wrapper customClass="row mx-2">
@@ -54,24 +54,24 @@ const FeaturedSection = ({ data }) => {
         <Wrapper customClass="featured-sub-wrapper row pl-lg-3">
           <FeaturedArticle
             customClass={smallCustomClass}
-            title={data[1].title}
+            title={data[1].article.title}
             imageUrl={featuredArticles[0].imageUrl}
           />
           <FeaturedArticle
             customClass={smallCustomClass}
-            title={data[2].title}
+            title={data[2].article.title}
             imageUrl={featuredArticles[1].imageUrl}
           />
         </Wrapper>
         <Wrapper customClass="featured-sub-wrapper row pl-lg-3">
           <FeaturedArticle
             customClass={smallCustomClass}
-            title={data[3].title}
+            title={data[3].article.title}
             imageUrl={featuredArticles[2].imageUrl}
           />
           <FeaturedArticle
             customClass={smallCustomClass}
-            title={data[4].title}
+            title={data[4].article.title}
             imageUrl={featuredArticles[3].imageUrl}
           />
         </Wrapper>

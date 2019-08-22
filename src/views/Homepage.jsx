@@ -62,7 +62,7 @@ export class Homepage extends Component {
   render() {
     const { allArticles } = this.props;
     const { charCount } = this.state;
-    const currentArr = removeDuplicate(allArticles, 'id');
+    const currentArr = removeDuplicate(allArticles, 'article.id');
     localStorage.setItem('total', currentArr.length);
     if (allArticles.length === 0) {
       return <Loader />;
