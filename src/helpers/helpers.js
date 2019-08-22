@@ -49,6 +49,7 @@ class Helpers {
 
   /**
    * @memberof Helpers
+   * @static
    * @description - filters out duplicate items from array and returns it
    * @param {array} array - array of objects to be filtered
    * @param {property} string - object key to be used for duplicate check
@@ -78,6 +79,19 @@ class Helpers {
 
       default:
         return undefined;
+    }
+  }
+
+  /**
+   * @memberof Helpers
+   * @static
+   * @description - redirects the page to dashboard
+   * @param {boolean} authFlag - authentication flag
+   * @param {object} history - the history object
+   */
+  static redirectToDashboard(authFlag, history) {
+    if (authFlag) {
+      history.push('/dashboard');
     }
   }
 }

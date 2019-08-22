@@ -10,6 +10,7 @@ import About from '../views/about';
 import Dashboard from '../views/Dashboard';
 
 import NotFound from '../views/NotFound';
+import SocialAuth from '../views/SocialAuth';
 import ResetPassword from '../views/ResetPassword';
 import PasswordReset from './PasswordReset/PasswordReset';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,6 +29,7 @@ const App = () => (
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/resetPassword" component={ResetPassword} />
       <Route path="/newpassword" component={PasswordReset} />
+      <Route path="/socialAuth" component={SocialAuth} />
       <Route component={NotFound} />
     </Switch>
   </div>

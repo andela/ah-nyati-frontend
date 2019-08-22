@@ -54,7 +54,7 @@ export class RegisterForm extends Component {
             <div>
               <p className="msg">Sign up with</p>
             </div>
-            <Socials />
+            <Socials action="Signup" />
           </div>
 
           <form className="col-lg-5 col-md-10 main-form" onSubmit={this.onSubmit} noValidate>
@@ -96,7 +96,7 @@ export class RegisterForm extends Component {
             </div>
             <input type="submit" value="Register" id="submit" className="btn-block" />
             <div className="lil-soc">
-              <Socials />
+              <Socials action="Signup" />
             </div>
           </form>
         </div>

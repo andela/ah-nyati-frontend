@@ -35,3 +35,15 @@ export const loginUser = userData => dispatch => axios
       payload: message,
     });
   });
+
+/**
+ * @description - logs in a user his using social account details
+ * @param {string} token - the request token
+ * @param {object} data - the user login details
+ */
+export const socialLogin = (token, data) => (dispatch) => {
+  localStorage.setItem('jwtToken', token);
+  setAuthToken(token);
+
+  dispatch(setCurrentUser(data));
+};
