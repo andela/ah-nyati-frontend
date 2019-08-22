@@ -45,14 +45,6 @@ describe('<LoginForm />', () => {
   it('renders a form component', () => {
     expect(app.find('form').length).toBe(1);
   });
-  it('renders invalid credentials error component', () => {
-    const form = shallow(<LoginForm
-      {
-        ...{ ...props, errors: { auth: 'Invalid email or password' } }
-      }
-    />);
-    expect(form.find('div.err').text()).toBe('Invalid email or password');
-  });
 
   it('it do not render invalid credentials on no auth error', () => {
     app = shallow(<LoginForm {...props} />);

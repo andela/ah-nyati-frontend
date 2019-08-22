@@ -64,7 +64,6 @@ export class LoginForm extends Component {
             <Socials action="Login" />
           </div>
           <form className="col-lg-5 col-md-10 main-form login-form" onSubmit={this.onSubmit}>
-            { errors.auth && <div className="err">Invalid email or password</div> }
             <div className="form-group">
               <p>Email:</p>
               <input
