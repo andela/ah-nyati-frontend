@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import axios from '../config/axiosInstance';
 import {
   GET_ERRORS, SET_CURRENT_USER,
@@ -29,6 +30,7 @@ export const loginUser = userData => dispatch => axios
       message = {
         auth: error.response.data.message,
       };
+      toast.error(error.response.data.message);
     }
     dispatch({
       type: GET_ERRORS,
