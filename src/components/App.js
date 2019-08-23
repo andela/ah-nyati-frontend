@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import Notifications from 'react-notify-toast';
 import { ToastContainer } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
+import ReduxToastr from 'react-redux-toastr';
 import NavBar from './NavigationBar';
 import Homepage from '../views/Homepage';
 import Register from '../views/Register';
@@ -17,6 +18,7 @@ import Articles from '../views/Articles';
 import store from '../store';
 import setAuthToken from '../utils/setAuthToken';
 import { setCurrentUser } from '../actions/authActions';
+import CreateArticlePage from './article/CreateArticlePage';
 
 const token = localStorage.jwtToken;
 let loggedInUser = {};
@@ -28,7 +30,17 @@ if (token) {
 }
 
 const App = () => (
-  <div>
+  <React.Fragment>
+    <ReduxToastr
+      timeOut={4000}
+      newestOnTop={false}
+      preventDuplicates
+      position="top-right"
+      transitionIn="fadeIn"
+      transitionOut="fadeOut"
+      progressBar
+      closeOnToastrClick
+    />
     <Notifications />
     <NavBar user={loggedInUser} />
     <ToastContainer />
@@ -42,10 +54,11 @@ const App = () => (
       <Route path="/resetPassword" component={ResetPassword} />
       <Route path="/newpassword" component={PasswordReset} />
       <Route path="/socialAuth" component={SocialAuth} />
+      <Route path="/article" component={CreateArticlePage} />
       <Route path="/articles" component={Articles} />
       <Route component={NotFound} />
     </Switch>
-  </div>
+  </React.Fragment>
 );
 
 export default App;

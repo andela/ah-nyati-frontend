@@ -19,13 +19,13 @@ describe('App', () => {
   });
 
   it('renders a div component', () => {
-    expect(app.find('div').length).toBe(1);
+    expect(app.find('div').length).toBe(0);
   });
 
   it('renders a Switch component', () => {
     expect(app.find('Switch').length).toBe(1);
   });
   it('renders a Route component', () => {
-    expect(app.find('Route').length).toBe(11);
+    expect(app.find('Route').length).toBe(12);
   });
 });
