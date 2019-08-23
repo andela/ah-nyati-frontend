@@ -21,6 +21,9 @@ describe('Navbar', () => {
             userName: 'nyati',
           },
         },
+        auth: {
+          user: {},
+        },
       });
       app = shallow(<Navbar store={store} user={user} />);
       res = app.dive().dive();

@@ -5,6 +5,7 @@ import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 import Socials from '../Socials';
+import Loader from '../Loader/index';
 
 /**
  *
@@ -26,7 +27,7 @@ export class LoginForm extends Component {
   componentDidUpdate() {
     const { auth, history } = this.props;
     if (auth.isAuthenticated) {
-      history.push('/dashboard');
+      history.goBack();
     }
   }
 
@@ -46,7 +47,18 @@ export class LoginForm extends Component {
 
   render() {
     const { email, password } = this.state;
-    const { errors } = this.props;
+    const { errors, auth } = this.props;
+    const { error } = errors;
+    const { loading } = auth;
+    const errorLoading = errors.loading;
+
+    if (loading && errorLoading) {
+      return (
+        <div>
+          <Loader />
+        </div>
+      );
+    }
 
     return (
       <div className="cont">
@@ -69,15 +81,15 @@ export class LoginForm extends Component {
               <input
                 type="email"
                 className={classnames('form-control form-control-lg', {
-                  'is-invalid': errors.email,
+                  'is-invalid': error.email,
                 })}
                 placeholder="Email Address"
                 name="email"
                 value={email}
                 onChange={this.onChange}
               />
-              {errors.email && (
-              <div className="invalid-feedback">{errors.email}</div>
+              {error.email && (
+              <div className="invalid-feedback">{error.email}</div>
               )}
             </div>
             <div className="form-group">
@@ -85,15 +97,15 @@ export class LoginForm extends Component {
               <input
                 type="password"
                 className={classnames('form-control form-control-lg', {
-                  'is-invalid': errors.password,
+                  'is-invalid': error.password,
                 })}
                 placeholder="Password"
                 name="password"
                 value={password}
                 onChange={this.onChange}
               />
-              {errors.password && (
-              <div className="invalid-feedback">{errors.password}</div>
+              {error.password && (
+              <div className="invalid-feedback">{error.password}</div>
               )}
             </div>
             <input type="submit" id="submit" className="btn-block" onClick={this.onSubmit} />

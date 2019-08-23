@@ -30,6 +30,13 @@ export class Navbar extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const { authUser: { userName } } = this.props;
+    if (prevProps.authUser.userName !== userName) {
+      this.props.getUser(userName);
+    }
+  }
+
   resize = () => {
     this.setState({ width: window.innerWidth <= 660 });
   }
@@ -84,7 +91,7 @@ export class Navbar extends React.Component {
     } = this.state;
 
     const {
-      user,
+      authUser,
       loggedInUser: {
         userName,
         imageUrl,
@@ -93,7 +100,7 @@ export class Navbar extends React.Component {
 
     const article = this.checkWidth(<i className="fas fa-book-reader" />, 'Articles');
     const notify = this.checkWidth(<i className="fas fa-bell" />, 'Notifications');
-
+    const currentUser = authUser;
     return (
       <nav className="navbar navbar-sides">
         <div className="navbar-logo">
@@ -129,7 +136,7 @@ export class Navbar extends React.Component {
           </Link>
         </div>
 
-        {Object.keys(user).length === 0 ? (
+        {Object.keys(currentUser).length === 0 ? (
           <span>
             <ul className={open ? 'navbar-menu navbar-menu-active' : 'navbar-menu'}>
               <li onClick={this.close} className="navbar-item"><Link to="/articles" className="navbar-link">Articles</Link></li>
@@ -212,12 +219,12 @@ export class Navbar extends React.Component {
 
 Navbar.propTypes = {
   getUser: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
   loggedInUser: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
   loggedInUser: state.user,
+  authUser: state.auth.user,
 });
 
 export default connect(mapStateToProps, { getUser })(Navbar);

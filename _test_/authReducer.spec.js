@@ -8,10 +8,22 @@ describe('Login reducer', () => {
     initialState = {
       isAuthenticated: false,
       user: {},
+      loading: false,
     };
   });
   it('should return the initial state', () => {
     expect(reducer(undefined, {})).toEqual(initialState);
+  });
+  it('should set loading to be true', () => {
+    expect(reducer(initialState, {
+      type: actionTypes.LOGIN_LOADING,
+      payload: {},
+    })).toEqual({
+      ...initialState,
+      isAuthenticated: false,
+      user: {},
+      loading: true,
+    });
   });
 
   it('should successfully store the token upon login', () => {
