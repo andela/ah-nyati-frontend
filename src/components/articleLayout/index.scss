@@ -6,6 +6,10 @@
     cursor: pointer;
   }
 
+  &-title {
+    text-transform: capitalize;
+  }
+
   &-article {
     border-bottom: $font-size-1 solid $color-grey;
     padding-bottom: 1.5rem;

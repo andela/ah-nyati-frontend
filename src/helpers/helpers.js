@@ -42,7 +42,6 @@ class Helpers {
    */
   static checkDuplicate(array, property) {
     const unique = _.uniqBy(array, property);
-    // console.log(array);
 
     return unique.length < array.length;
   }

@@ -1,0 +1,16 @@
+.com-btn {
+  color: #2e99d6;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 40px;
+  border: 1px solid rgba(0, 0, 0, .4);
+  padding: 8px;
+  cursor: pointer;
+}
+
+@media(max-width: 1024px) {
+  .com-btn {
+    font-size: 25px;
+    padding: 5px;
+  }
+}

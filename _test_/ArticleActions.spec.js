@@ -1,7 +1,6 @@
 import moxios from 'moxios';
 import makeMockStore from './Utils/makeMockStore';
 import { fetchResponseData, mockData } from './testData/articleData';
-
 import ArticleActions from '../src/actions/ArticleActions';
 import {
   SET_LOADING,

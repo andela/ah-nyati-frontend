@@ -1,6 +1,7 @@
 import React from 'react';
 import PropType from 'prop-types';
 import { Trail } from 'react-spring/renderprops.cjs';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
 const ArticleLayout = (props) => {
@@ -16,6 +17,8 @@ const ArticleLayout = (props) => {
     );
   }
 
+  const URL = '/articles/';
+
   /* istanbul ignore next */
   return (
     <Trail
@@ -26,7 +29,7 @@ const ArticleLayout = (props) => {
     >
       {singleArticle => prop => (
         <div style={prop} className="col p-0 articles">
-          <div className="row no-gutters overflow-hidden flex-md-row mb-4 h-md-250 position-relative articles-article">
+          <Link to={URL + singleArticle.article.slug} className="linky-2 row no-gutters overflow-hidden flex-md-row mb-4 h-md-250 position-relative articles-article">
             <div className="col-auto d-lg-block">
               <img
                 className="bd-placeholder-img"
@@ -37,7 +40,7 @@ const ArticleLayout = (props) => {
               />
             </div>
             <div className="col pl-4 d-flex flex-column position-static articles-right">
-              <h3 className="mb-3">{singleArticle.article.title}</h3>
+              <h3 className="mb-3 articles-title">{singleArticle.article.title}</h3>
               <p className="card-text mb-3">{`${singleArticle.article.body.substring(0, 150)}...`}</p>
               <div className="d-flex flex-row articles-feature">
                 <p className="articles-like mr-3">
@@ -58,7 +61,7 @@ const ArticleLayout = (props) => {
                 </p>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       )}
     </Trail>

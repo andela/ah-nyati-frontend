@@ -19,6 +19,8 @@ import store from '../store';
 import setAuthToken from '../utils/setAuthToken';
 import { setCurrentUser } from '../actions/authActions';
 import CreateArticlePage from './article/CreateArticlePage';
+import SingleArticle from './SingleArticle';
+import Comments from './Comments';
 
 const token = localStorage.jwtToken;
 let loggedInUser = {};
@@ -55,7 +57,9 @@ const App = () => (
       <Route path="/newpassword" component={PasswordReset} />
       <Route path="/socialAuth" component={SocialAuth} />
       <Route path="/article" component={CreateArticlePage} />
-      <Route path="/articles" component={Articles} />
+      <Route exact path="/articles" component={Articles} />
+      <Route exact path="/articles/:slug" component={SingleArticle} />
+      <Route path="/comments/" component={Comments} />
       <Route component={NotFound} />
     </Switch>
   </React.Fragment>

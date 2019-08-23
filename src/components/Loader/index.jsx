@@ -17,12 +17,14 @@ export default class Index extends React.Component {
   timeOut = () => {
     setTimeout(() => {
       this.setState({
-        reload: <div className="loader__reload loader__reload-show">
+        reload: (
+          <div className="loader__reload loader__reload-show">
           Ooops! Check your network and
-          <span className="loader__reload-click" onClick={this.reload}>
-           Try Again
-          </span>
-        </div>,
+            <span className="loader__reload-click" onClick={this.reload}>
+                  Try Again
+            </span>
+          </div>
+        ),
       });
     }, 6000);
   }

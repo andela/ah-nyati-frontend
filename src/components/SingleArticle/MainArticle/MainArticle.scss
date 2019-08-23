@@ -1,0 +1,54 @@
+.main-article {
+  margin-top: 40px;
+}
+
+.article-title {
+  text-transform: capitalize;
+}
+
+.article-stats {
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+}
+
+.stat-num, .author-key, .time-key {
+  font-weight: 700;
+  display: block;
+  text-align: center;
+}
+
+.views-stat {
+  border-right: 1.5px solid rgba(0, 0, 0, .4);
+  border-left: 1.5px solid rgba(0, 0, 0, .4);
+}
+
+.main-img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.write-up {
+  margin-top: 50px;
+  font-size: 20px; 
+}
+
+@media (max-width: 1024px) {
+  .main-img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .article-title {
+    font-size: 1.5rem;
+  }
+
+  .article-stats {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
