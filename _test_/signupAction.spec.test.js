@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { GET_ERRS } from '../src/actions/types';
+import { GET_ERRS, SET_LOADING, SUCCESS } from '../src/actions/types';
 import mockRegisterData from '../src/utils/registerMockStore';
 import { registerUser } from '../src/actions/registerActions';
 import axios from '../src/config/axiosInstance';
@@ -25,6 +25,9 @@ describe('Register actions', () => {
     });
     const expectedActions = [
       {
+        type: SET_LOADING,
+      },
+      {
         payload: errorResponse.message,
         type: GET_ERRS,
       },
@@ -32,7 +35,10 @@ describe('Register actions', () => {
     store = mockStore({});
     store.dispatch(registerUser())
       .then(() => {
-        expect(store.getActions()).toEqual(expectedActions);
+        // expect(store.getActions()).toEqual(expectedActions);
+        const actions = store.getActions();
+        expect(actions[0]).toEqual(expectedActions[0]);
+        expect(actions[1].type).toEqual(expectedActions[1].type);
         done();
       });
   });
@@ -42,7 +48,14 @@ describe('Register actions', () => {
       status: 201,
       response: successResponse,
     });
-    const expectedActions = [];
+    const expectedActions = [
+      {
+        type: SET_LOADING,
+      },
+      {
+        type: SUCCESS,
+      },
+    ];
 
     store = mockStore({});
     const history = { push: jest.fn() };

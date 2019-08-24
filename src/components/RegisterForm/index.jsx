@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { registerUser } from '../../actions/registerActions';
 import InputField from '../InputField';
 import Socials from '../Socials';
+import Loader from '../Loader';
 
 export class RegisterForm extends Component {
   state = {
@@ -45,6 +46,10 @@ export class RegisterForm extends Component {
       email: 'email',
       password: 'password',
     };
+
+    if (this.props.loadingErrors && this.props.loading) {
+      return <Loader />;
+    }
 
     return (
       <div className="cont">
@@ -118,12 +123,16 @@ RegisterForm.propTypes = {
     password: PropTypes.string,
   }).isRequired,
   history: PropTypes.shape({}).isRequired,
+  loading: PropTypes.bool.isRequired,
+  loadingErrors: PropTypes.bool.isRequired,
 };
 
 
 export const mapStateToProps = state => ({
   auth: state.auth,
-  signupErrors: state.signupErrors,
+  signupErrors: state.signupErrors.errors,
+  loadingErrors: state.signupErrors.loading,
+  loading: state.success.loading,
 });
 
 export default connect(mapStateToProps, { registerUser })(withRouter(RegisterForm));

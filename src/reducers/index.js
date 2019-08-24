@@ -7,6 +7,7 @@ import articleReducer from './articleReducer';
 import registerErrorsReducer from './registerErrorsReducer';
 import articles from './articlesReducer';
 import user from './getUserReducer';
+import success from './success';
 
 import createArticleReducer from './article/article';
 import fetchCategoryReducer from './category/category';
@@ -17,6 +18,7 @@ export default combineReducers({
   reset: resetReducer,
   article: articleReducer,
   signupErrors: registerErrorsReducer,
+  success,
   articles,
   user,
   articleReducer,
