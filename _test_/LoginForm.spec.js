@@ -14,15 +14,18 @@ describe('<LoginForm />', () => {
     password: '',
     type: 'email',
     errors: {
-      email: 'error',
-      password: 'error',
+      error: {
+        email: 'error',
+        password: 'error',
+      },
     },
     value: 'This is just for test',
     onSubmit: jest.fn(),
     onChange: jest.fn(),
-    auth: { isAuthenticated: true },
+    auth: { isAuthenticated: true, loading: true },
     history: {
       push: path => path,
+      goBack: jest.fn(),
     },
     loginUser: jest.fn(),
   };
@@ -49,6 +52,11 @@ describe('<LoginForm />', () => {
   it('it do not render invalid credentials on no auth error', () => {
     app = shallow(<LoginForm {...props} />);
     expect(app.find('div.err')).toEqual({});
+  });
+
+  it('it render loader', () => {
+    app = shallow(<LoginForm {...{ ...props, errors: { loading: { errorLoading: true } } }} />);
+    expect(app.find('Loader')).toBeTruthy();
   });
 
   it('renders a p component', () => {

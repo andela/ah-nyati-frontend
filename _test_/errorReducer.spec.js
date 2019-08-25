@@ -1,13 +1,18 @@
 import errorReducer from '../src/reducers/errorReducer';
 import {
-  GET_ERRORS,
+  GET_ERRORS, LOGIN_LOADING,
 } from '../src/actions/types';
 
 describe('Error reducer', () => {
-  let initialState;
-
-  beforeEach(() => {
-    initialState = {};
+  it('should set loading to true before displaying error', () => {
+    expect(
+      errorReducer({}, {
+        type: LOGIN_LOADING,
+        loading: true,
+      }),
+    ).toEqual({
+      loading: true,
+    });
   });
 
   it('should return thrown error', () => {
@@ -16,18 +21,17 @@ describe('Error reducer', () => {
         type: GET_ERRORS,
         payload: 'This is an error!',
       }),
-    ).toEqual('This is an error!');
+    ).toEqual({ error: 'This is an error!', loading: false });
   });
   it('should return the initial state', () => {
-    expect(errorReducer(undefined, {})).toEqual({});
-  });
-
-  it('should return state for default call', () => {
-    expect(
-      errorReducer(initialState, {
-        type: '',
-        payload: 'This is an error!',
-      }),
-    ).toEqual({});
+    expect(errorReducer(undefined, {})).toEqual(
+      {
+        error: {
+          email: '',
+          password: '',
+        },
+        loading: false,
+      },
+    );
   });
 });

@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { SET_CURRENT_USER, GET_ERRORS } from '../src/actions/types';
+import { SET_CURRENT_USER, GET_ERRORS, LOGIN_LOADING } from '../src/actions/types';
 import mockLoginData from '../src/utils/loginMockStore';
 import { loginUser, socialLogin } from '../src/actions/authActions';
 import axios from '../src/config/axiosInstance';
@@ -24,6 +24,9 @@ describe('Login actions', () => {
     });
     const expectedActions = [
       {
+        type: LOGIN_LOADING,
+      },
+      {
         payload: errorResponse.message,
         type: GET_ERRORS,
       },
@@ -41,6 +44,9 @@ describe('Login actions', () => {
       response: successResponse,
     });
     const expectedActions = [
+      {
+        type: LOGIN_LOADING,
+      },
       {
         payload: successResponse.data[0],
         type: SET_CURRENT_USER,
