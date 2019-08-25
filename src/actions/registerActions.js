@@ -1,23 +1,28 @@
 import axios from '../config/axiosInstance';
 import setAuthToken from '../utils/setAuthToken';
-import { GET_ERRS, SET_CURRENT_USER } from './types';
+import { GET_ERRS, SET_LOADING, SUCCESS } from './types';
 
-export const setCurrentUser = decoded => ({
-  type: SET_CURRENT_USER,
-  payload: decoded,
+export const success = () => ({
+  type: SUCCESS,
 });
 
-export const registerUser = (newUserDetails, history) => dispatch => axios.post('/auth/signup', newUserDetails)
-  .then((res) => {
-    const { token } = res.data;
+export const registerUser = (newUserDetails, history) => (dispatch) => {
+  dispatch({
+    type: SET_LOADING,
+  });
+  return axios.post('/auth/signup', newUserDetails)
+    .then((res) => {
+      const { token } = res.data;
 
-    localStorage.setItem('jwtToken', token);
+      localStorage.setItem('jwtToken', token);
 
-    setAuthToken(token);
+      setAuthToken(token);
 
-    history.push('/dashboard');
-  })
-  .catch(err => dispatch({
-    type: GET_ERRS,
-    payload: err.response.data.message,
-  }));
+      history.push('/dashboard');
+      dispatch(success());
+    })
+    .catch(err => dispatch({
+      type: GET_ERRS,
+      payload: err.response.data.message,
+    }));
+};

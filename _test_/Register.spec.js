@@ -6,6 +6,7 @@ import { GET_ERRS } from '../src/actions/types';
 import { RegisterForm } from '../src/components/RegisterForm';
 import Socials from '../src/components/Socials';
 import InputField from '../src/components/InputField';
+import Loader from '../src/components/Loader';
 
 
 describe('Register', () => {
@@ -18,6 +19,8 @@ describe('Register', () => {
     auth: {},
     signupErrors: {},
     history: {},
+    loading: false,
+    loadingErrors: false,
   };
 
 
@@ -29,7 +32,13 @@ describe('Register', () => {
     expect(component).toBeDefined();
   });
 
+  it('renders a loader', () => {
+    component.setProps({ loading: true, loadingErrors: true });
+    expect(component.find(Loader).length).toBe(1);
+  });
+
   it('should render errors', () => {
+    component.setProps({ loading: false, loadingErrors: false });
     const state = { userName: 'Username is required' };
     expect(registerErrorsReducer(state, GET_ERRS)).toBe(state);
   });
