@@ -1,7 +1,7 @@
 import moxios from 'moxios';
 import thunk from 'redux-thunk';
 import configureMockStore from 'redux-mock-store';
-import { GET_ERRS, SET_LOADING, SUCCESS } from '../src/actions/types';
+import { GET_ERRS, SIGNUP_LOADING, SUCCESS } from '../src/actions/types';
 import mockRegisterData from '../src/utils/registerMockStore';
 import { registerUser } from '../src/actions/registerActions';
 import axios from '../src/config/axiosInstance';
@@ -25,7 +25,7 @@ describe('Register actions', () => {
     });
     const expectedActions = [
       {
-        type: SET_LOADING,
+        type: SIGNUP_LOADING,
       },
       {
         payload: errorResponse.message,
@@ -50,7 +50,7 @@ describe('Register actions', () => {
     });
     const expectedActions = [
       {
-        type: SET_LOADING,
+        type: SIGNUP_LOADING,
       },
       {
         type: SUCCESS,

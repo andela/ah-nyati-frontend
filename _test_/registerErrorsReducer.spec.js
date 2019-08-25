@@ -13,7 +13,7 @@ describe('Register Errors reducer', () => {
 
   it('should load before getting errors', () => {
     expect(reducer(initialState, {
-      type: actionTypes.SET_LOADING,
+      type: actionTypes.SIGNUP_LOADING,
     })).toEqual({
       ...initialState,
       loading: true,
