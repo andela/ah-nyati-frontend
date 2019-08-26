@@ -23,7 +23,7 @@ const ArticleCard = (props) => {
   return (
     <Link to={URL} className="linky col-12 col-lg-6 my-2 my-lg-3">
       <div className="row h-100">
-        <img src={imageUrl || 'https://res.cloudinary.com/free-spirit/image/upload/v1566195129/AH-assets/20180601091038_h5b109d0e0d71f.jpg'} alt="" className="article-card__image col-6" />
+        <img src={imageUrl || 'https://res.cloudinary.com/free-spirit/image/upload/v1566832343/AH-assets/default-image.jpg'} alt="" className="article-card__image col-6" />
         <div className="col-6 article-card__aside">
           <h3 className="article-card__title">{title}</h3>
           <p className="article-card__text line-clamp">{`${truncText}...`}</p>

@@ -57,13 +57,13 @@ const FeaturedSection = ({ data }) => {
             customClass={smallCustomClass}
             title={data[1].article.title}
             slug={data[1].article.slug}
-            imageUrl={featuredArticles[0].imageUrl}
+            imageUrl={data[1].article.imageUrl}
           />
           <FeaturedArticle
             customClass={smallCustomClass}
             title={data[2].article.title}
             slug={data[2].article.slug}
-            imageUrl={featuredArticles[1].imageUrl}
+            imageUrl={data[2].article.imageUrl}
           />
         </Wrapper>
         <Wrapper customClass="featured-sub-wrapper row pl-lg-3">
@@ -71,13 +71,13 @@ const FeaturedSection = ({ data }) => {
             customClass={smallCustomClass}
             title={data[3].article.title}
             slug={data[3].article.slug}
-            imageUrl={featuredArticles[2].imageUrl}
+            imageUrl={data[3].article.imageUrl}
           />
           <FeaturedArticle
             customClass={smallCustomClass}
             title={data[4].article.title}
             slug={data[4].article.slug}
-            imageUrl={featuredArticles[3].imageUrl}
+            imageUrl={data[4].article.imageUrl}
           />
         </Wrapper>
       </Wrapper>
