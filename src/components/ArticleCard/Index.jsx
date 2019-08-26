@@ -21,28 +21,26 @@ const ArticleCard = (props) => {
   const URL = `articles/${slug}`;
 
   return (
-    <Link to={URL} className="linky col-12 col-lg-6">
-      <div className="my-2 my-lg-3">
-        <div className="row h-100">
-          <img src={imageUrl || 'https://res.cloudinary.com/free-spirit/image/upload/v1566195129/AH-assets/20180601091038_h5b109d0e0d71f.jpg'} alt="" className="article-card__image col-6" />
-          <div className="col-6 article-card__aside">
-            <h3 className="article-card__title">{title}</h3>
-            <p className="article-card__text line-clamp">{`${truncText}...`}</p>
-            <p className="article-card__footer">
-              {date}
-            &nbsp;/&nbsp;
-              {readTime}
-            </p>
-            <div className="article-card__highlights-bar">
-              {likeCount}
-            &nbsp;
-              <i className="fas fa-thumbs-up article-card-icon" />
-            &nbsp;
-            &nbsp;
-              {viewCount}
-            &nbsp;
-            Views
-            </div>
+    <Link to={URL} className="linky col-12 col-lg-6 my-2 my-lg-3">
+      <div className="row h-100">
+        <img src={imageUrl || 'https://res.cloudinary.com/free-spirit/image/upload/v1566195129/AH-assets/20180601091038_h5b109d0e0d71f.jpg'} alt="" className="article-card__image col-6" />
+        <div className="col-6 article-card__aside">
+          <h3 className="article-card__title">{title}</h3>
+          <p className="article-card__text line-clamp">{`${truncText}...`}</p>
+          <p className="article-card__footer">
+            {date}
+          &nbsp;/&nbsp;
+            {readTime}
+          </p>
+          <div className="article-card__highlights-bar">
+            {likeCount}
+          &nbsp;
+            <i className="fas fa-thumbs-up article-card-icon" />
+          &nbsp;
+          &nbsp;
+            {viewCount}
+          &nbsp;
+          Views
           </div>
         </div>
       </div>
