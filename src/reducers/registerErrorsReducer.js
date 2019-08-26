@@ -1,10 +1,10 @@
-import { GET_ERRS, SET_LOADING } from '../actions/types';
+import { GET_ERRS, SIGNUP_LOADING } from '../actions/types';
 
 const initialState = { loading: false, errors: {} };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case SET_LOADING:
+    case SIGNUP_LOADING:
       return {
         ...state,
         loading: true,

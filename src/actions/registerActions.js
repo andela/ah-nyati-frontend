@@ -1,6 +1,6 @@
 import axios from '../config/axiosInstance';
 import setAuthToken from '../utils/setAuthToken';
-import { GET_ERRS, SET_LOADING, SUCCESS } from './types';
+import { GET_ERRS, SIGNUP_LOADING, SUCCESS } from './types';
 
 export const success = () => ({
   type: SUCCESS,
@@ -8,7 +8,7 @@ export const success = () => ({
 
 export const registerUser = (newUserDetails, history) => (dispatch) => {
   dispatch({
-    type: SET_LOADING,
+    type: SIGNUP_LOADING,
   });
   return axios.post('/auth/signup', newUserDetails)
     .then((res) => {
