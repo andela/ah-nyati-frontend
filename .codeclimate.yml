@@ -12,4 +12,6 @@ checks:
     enabled: false
   identical-code:
     enabled: true
-    
+  method-complexity:
+    config:
+      threshold: 10

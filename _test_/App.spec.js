@@ -26,6 +26,6 @@ describe('App', () => {
     expect(app.find('Switch').length).toBe(1);
   });
   it('renders a Route component', () => {
-    expect(app.find('Route').length).toBe(12);
+    expect(app.find('Route').length).toBe(14);
   });
 });

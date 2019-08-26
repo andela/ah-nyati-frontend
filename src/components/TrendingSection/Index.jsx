@@ -32,6 +32,7 @@ const TrendingSection = (props) => {
             title,
             body,
             views,
+            slug,
           } = article.article;
           const { likes } = article;
 
@@ -43,6 +44,7 @@ const TrendingSection = (props) => {
               imageUrl={imageUrl}
               text={body}
               date={date}
+              slug={slug}
               readTime={readTime}
               likeCount={likes}
               viewCount={views}

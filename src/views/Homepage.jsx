@@ -8,7 +8,7 @@ import ArticleActions from '../actions/ArticleActions';
 import Loader from '../components/Loader';
 import Helpers from '../helpers/helpers';
 
-const { fetchArticles, getMoreArticles } = ArticleActions;
+const { fetchArticles, getMoreArticles, viewArticle } = ArticleActions;
 const {
   setCount,
   removeDuplicate,
@@ -96,4 +96,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchArticles, getMoreArticles })(Homepage);
+export default connect(mapStateToProps, { fetchArticles, getMoreArticles, viewArticle })(Homepage);

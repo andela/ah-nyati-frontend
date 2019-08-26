@@ -16,7 +16,6 @@ describe('Homepage', () => {
     const comp = shallow(<Home allArticles={homeData} fetchArticles={getArticles} />);
     const inst = comp.instance();
     inst.loadItems();
-    // console.log(inst.debug());
   });
 
   it('componentWillUnmount should be called on unmount', () => {

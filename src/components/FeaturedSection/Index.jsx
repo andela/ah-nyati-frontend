@@ -47,6 +47,7 @@ const FeaturedSection = ({ data }) => {
     <Wrapper customClass="row mx-2">
       <FeaturedArticle
         title={bigArticleTitle}
+        slug={data[0].article.slug}
         imageUrl={bigArticleImageUrl}
         customClass={bigCustomClass}
       />
@@ -55,11 +56,13 @@ const FeaturedSection = ({ data }) => {
           <FeaturedArticle
             customClass={smallCustomClass}
             title={data[1].article.title}
+            slug={data[1].article.slug}
             imageUrl={featuredArticles[0].imageUrl}
           />
           <FeaturedArticle
             customClass={smallCustomClass}
             title={data[2].article.title}
+            slug={data[2].article.slug}
             imageUrl={featuredArticles[1].imageUrl}
           />
         </Wrapper>
@@ -67,11 +70,13 @@ const FeaturedSection = ({ data }) => {
           <FeaturedArticle
             customClass={smallCustomClass}
             title={data[3].article.title}
+            slug={data[3].article.slug}
             imageUrl={featuredArticles[2].imageUrl}
           />
           <FeaturedArticle
             customClass={smallCustomClass}
             title={data[4].article.title}
+            slug={data[4].article.slug}
             imageUrl={featuredArticles[3].imageUrl}
           />
         </Wrapper>

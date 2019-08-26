@@ -23,14 +23,6 @@ describe('FeaturedArticle', () => {
     expect(app).toBeDefined();
   });
 
-  it('renders a div component', () => {
-    expect(app.find('div').length).toBe(1);
-  });
-
-  it('renders an img component', () => {
-    expect(app.find('img').length).toBe(1);
-  });
-
   it('renders a h3 component', () => {
     expect(app.find('h3').length).toBe(1);
   });
