@@ -35,7 +35,7 @@ describe('ArticleCard', () => {
   });
 
   it('renders a div component', () => {
-    expect(app.find('div').length).toBe(4);
+    expect(app.find('div').length).toBe(3);
   });
 
   it('renders an img component', () => {
