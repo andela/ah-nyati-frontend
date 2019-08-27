@@ -10,6 +10,7 @@ const FeaturedArticle = (props) => {
     customClass,
     slug,
   } = props;
+
   const {
     wrapperClass,
     imageClass,
@@ -20,7 +21,7 @@ const FeaturedArticle = (props) => {
 
   return (
     <Link to={URL} className={`featured-article__wrapper linky ${wrapperClass}`}>
-      <img src={imageUrl || 'https://res.cloudinary.com/free-spirit/image/upload/v1565889455/AH-assets/tetty-bear-image-24.gif'} alt="" className={`featured-article__image ${imageClass}`} />
+      <img src={imageUrl || 'https://res.cloudinary.com/free-spirit/image/upload/v1566832343/AH-assets/default-image.jpg'} alt="" className={`featured-article__image ${imageClass}`} />
       <h3 className={`featured-article__title ${titleClass}`}>{title}</h3>
     </Link>
   );

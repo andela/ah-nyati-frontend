@@ -24,12 +24,12 @@ const TrendingSection = (props) => {
       {
         data.map((article, index) => {
           const {
-            imageUrl,
             date,
             readTime,
           } = trendingArticles[index % 5];
           const {
             title,
+            imageUrl,
             body,
             views,
             slug,
