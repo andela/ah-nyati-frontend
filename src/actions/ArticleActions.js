@@ -5,14 +5,17 @@ import {
   GET_ERRORS,
   SET_CURRENT_ARTICLES,
   VIEW_SINGLE_ARTICLE,
+  GET_ARTICLES_BY_TAG,
 } from './types';
+
+const baseUrl = 'https://ah-nyati-backend-staging.herokuapp.com/api/v1';
 
 class ArticleActions {
   static fetchArticles = (limit, page) => (dispatch) => {
     dispatch({
       type: SET_LOADING,
     });
-    return axios.get(`https://ah-nyati-backend-staging.herokuapp.com/api/v1/articles?limit=${limit}&currentPage=${page}`)
+    return axios.get(`${baseUrl}/articles?limit=${limit}&currentPage=${page}`)
       .then((res) => {
         dispatch({
           type: FETCH_ARTICLES,
@@ -40,7 +43,7 @@ class ArticleActions {
     dispatch({
       type: SET_LOADING,
     });
-    return axios.get(`https://ah-nyati-backend-staging.herokuapp.com/api/v1/articles/${slug}`)
+    return axios.get(`${baseUrl}/articles/${slug}`)
       .then((res) => {
         dispatch({
           type: VIEW_SINGLE_ARTICLE,
@@ -67,6 +70,25 @@ class ArticleActions {
           payload: err.message,
         });
       });
+  }
+
+  static getArticlesByTag = (tag, page = 1) => (dispatch) => {
+    dispatch({
+      type: SET_LOADING,
+    });
+    return axios.get(`${baseUrl}/searcharticles?tag=${tag}&limit=${5}&currentPage=${page}`)
+      .then((res) => {
+        return (
+          dispatch({
+            type: GET_ARTICLES_BY_TAG,
+            payload: res.data.data[0],
+          })
+        );
+      })
+      .catch(error => dispatch({
+        type: GET_ERRORS,
+        payload: error.message,
+      }));
   }
 }
 

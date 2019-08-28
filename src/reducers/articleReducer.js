@@ -2,11 +2,13 @@ import {
   FETCH_ARTICLES,
   SET_LOADING,
   SET_CURRENT_ARTICLES,
+  GET_ARTICLES_BY_TAG,
 } from '../actions/types';
 
 const initialState = {
   totalArticles: 0,
   currentArticles: [],
+  articlesByTag: [],
   allArticles: [],
   loading: false,
 };
@@ -26,6 +28,13 @@ const articleReducer = (state = initialState, action) => {
       return {
         ...state,
         currentArticles: payload,
+        loading: false,
+      };
+
+    case GET_ARTICLES_BY_TAG:
+      return {
+        ...state,
+        articlesByTag: payload,
         loading: false,
       };
 
