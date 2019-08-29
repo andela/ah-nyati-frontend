@@ -19,6 +19,7 @@ const articlesReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+        errors: null,
         articles: state.articles.concat(action.payload),
       };
     case types.CREATE_ARTICLE_FAILURE:

@@ -62,7 +62,7 @@ export class RegisterForm extends Component {
             <Socials action="Signup" />
           </div>
 
-          <form className="col-lg-5 col-md-10 main-form" onSubmit={this.onSubmit} noValidate>
+          <form className="col-lg-5 col-md-10 main-form reg-form" onSubmit={this.onSubmit} noValidate>
             <h4 className="lil-signup">Sign Up</h4>
             <div className="form-group">
               <InputField

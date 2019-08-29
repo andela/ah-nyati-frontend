@@ -20,9 +20,9 @@ export const createArticle = articleData => (dispatch) => {
   const form = new FormData();
   Object.keys(articleData).forEach(key => form.append([key], articleData[key]));
   dispatch(createArticleStart());
-  return axiosWithAuth().post('/articles', form).then(({ data, status }) => {
+  return axiosWithAuth().post('/articles', form).then(({ data }) => {
     dispatch(createArticleSuccess(data.data));
-    return status;
+    return { data: data.data, status: data.status };
   }).catch((err) => {
     dispatch(createArticleFailed({ message: err.response.data.message }));
   });
