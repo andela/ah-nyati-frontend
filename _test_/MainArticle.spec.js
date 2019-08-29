@@ -31,7 +31,7 @@ describe('Main Article', () => {
   });
 
   it('renders an Link tag', () => {
-    expect(component.find('Link').length).toBe(1);
+    expect(component.find('Link').length).toBe(2);
   });
 
   it('renders a p tag', () => {
@@ -39,7 +39,7 @@ describe('Main Article', () => {
   });
 
   it('renders a span tag', () => {
-    expect(component.find('span').length).toBe(3);
+    expect(component.find('span').length).toBe(4);
   });
 
   it('renders an image tag', () => {
