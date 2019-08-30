@@ -15,6 +15,7 @@ import SocialAuth from '../views/SocialAuth';
 import ResetPassword from '../views/ResetPassword';
 import PasswordReset from './PasswordReset/PasswordReset';
 import Articles from '../views/Articles';
+import Profile from '../views/Profile';
 import store from '../store';
 import setAuthToken from '../utils/setAuthToken';
 import { setCurrentUser } from '../actions/authActions';
@@ -62,6 +63,8 @@ const App = () => (
       <Route exact path="/articles/:slug" component={SingleArticle} />
       <Route path="/comments/" component={Comments} />
       <Route path="/updatearticle/:slug" component={UpdateArticlePage} />
+      <Route path="/articles" component={Articles} />
+      <Route path="/profile/:userId" component={Profile} />
 
       <Route component={NotFound} />
     </Switch>

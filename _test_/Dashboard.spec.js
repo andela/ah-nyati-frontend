@@ -24,14 +24,14 @@ describe('Dashboard', () => {
   });
 
   it('renders a ul tag', () => {
-    expect(component.find('ul').length).toBe(1);
+    expect(component.find('ul').length).toBe(2);
   });
 
   it('renders a li tag', () => {
-    expect(component.find('li').length).toBe(1);
+    expect(component.find('li').length).toBe(2);
   });
 
   it('renders a Link tag', () => {
-    expect(component.find('Link').length).toBe(1);
+    expect(component.find('Link').length).toBe(2);
   });
 });
