@@ -4,14 +4,14 @@ import { shallow, mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ConnectedCreateArticle, { CreateArticle } from '../src/components/article/CreateArticlePage';
+import ConnectedCreateArticle, { CreateArticle, mapDispatchToProps } from '../src/components/article/CreateArticlePage';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 const file = new File(['(⌐□_□)'], 'image-data.png', { type: 'image/*' });
 
 const props = {
-  newArticle: jest.fn(() => Promise.resolve(201)),
+  newArticle: jest.fn(() => Promise.resolve({ status: 201 })),
   history: {
     push: jest.fn(),
   },
@@ -32,6 +32,7 @@ const props = {
     ],
   })),
 };
+
 
 describe('Error', () => {
   let app;
@@ -187,5 +188,56 @@ describe('Error', () => {
 
     expect(wrapper.find('option')).toHaveLength(2);
     expect(wrapper.find('option').at(1).text()).toEqual('Technology');
+  });
+  it('should dispatch article request action', () => {
+    const dispatch = jest.fn();
+    mapDispatchToProps(dispatch).newArticle();
+  });
+  it('should dispatch category request action', () => {
+    const dispatch = jest.fn();
+    mapDispatchToProps(dispatch).allCategories();
+  });
+
+  it('dds aghvxhasd', () => {
+    const wrapper = shallow(<CreateArticle {...props} />);
+    wrapper.find('form').simulate('submit', { preventDefault: jest.fn(), target: { } });
+  });
+
+  it('ddd', () => {
+    const wrapper = shallow(<CreateArticle {...props} />);
+    wrapper.setState({
+      form: {
+        title: 'am an article',
+        catId: 8,
+        tags: 'am,article,still',
+        body: 'I thougth I said am an articledcxagscxgascgxas  bvcdgdcgavsdgxavsgxvagsvdxgasvxgasvgx ',
+        description: 'is just a simple description',
+        images: null,
+      },
+      pictures: [],
+      categories: [],
+    });
+    wrapper.find('form').simulate('submit', { preventDefault: jest.fn(), target: { } });
+  });
+
+  it('cdgascdgacdgs', () => {
+    const wrapper = shallow(
+      <CreateArticle
+        {...{ ...props, newArticle: jest.fn(() => Promise.resolve({ status: 400 })) }}
+      />,
+    );
+    wrapper.setState({
+      form: {
+        title: 'am an article',
+        catId: 8,
+        tags: 'am,article,still',
+        body: 'I thougth I said am an articledcxagscxgascgxas  bvcdgdcgavsdgxavsgxvagsvdxgasvxgasvgx ',
+        description: 'is just a simple description',
+        images: null,
+      },
+      pictures: [],
+      categories: [],
+    });
+    wrapper.find('form').simulate('submit', { preventDefault: jest.fn(), target: { } });
   });
 });
