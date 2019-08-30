@@ -1,13 +1,13 @@
 import errorReducer from '../src/reducers/errorReducer';
 import {
-  GET_ERRORS, LOGIN_LOADING,
+  GET_ERRORS, AUTH_LOADING,
 } from '../src/actions/types';
 
 describe('Error reducer', () => {
   it('should set loading to true before displaying error', () => {
     expect(
       errorReducer({}, {
-        type: LOGIN_LOADING,
+        type: AUTH_LOADING,
         loading: true,
       }),
     ).toEqual({

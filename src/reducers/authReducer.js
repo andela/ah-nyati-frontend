@@ -1,6 +1,6 @@
 import isEmpty from '../validations/isEmpty';
 import {
-  SET_CURRENT_USER, LOGIN_LOADING,
+  SET_CURRENT_USER, AUTH_LOADING, REMOVE_CURRENT_USER,
 } from '../actions/types';
 
 const initialState = {
@@ -10,7 +10,7 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_LOADING:
+    case AUTH_LOADING:
       return {
         ...state,
         loading: true,
@@ -20,6 +20,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload,
+        loading: false,
+      };
+    case REMOVE_CURRENT_USER:
+      return {
+        ...initialState,
         loading: false,
       };
     default:
