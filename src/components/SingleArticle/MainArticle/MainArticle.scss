@@ -2,6 +2,18 @@
   margin-top: 40px;
 }
 
+.editText {
+  text-align: center;
+  padding-top: 3px;
+  width: 70px;
+  height: 30px;
+  border-radius: 10px;
+  background-color: #2e99d6;
+  color: #fff;
+  font-size: 16px;
+  border: 1px solid #2e99d6
+}
+
 .article-title {
   text-transform: capitalize;
 }
@@ -25,6 +37,45 @@
   border-left: 1.5px solid rgba(0, 0, 0, .4);
 }
 
+.action-button-wrapper {
+  display: inline-block;
+  margin-top: 30px;
+}
+
+.action-button {
+  margin-left: 10px;
+}
+
+.del-btn {
+  background-color: #bd2935;
+  padding-top: 0;
+}
+.del-cancel-btn {
+  background-color: #9fb1bb;
+}
+
+.del-confirm-btn {
+  background-color: #bd2935;
+}
+
+.modal-text {
+  margin: 10px 0;
+  margin-bottom: 30px;
+}
+
+.modal-btn-wrapper {
+  margin: 10px 0;
+}
+
+.del-btn-grp {
+  padding: 0px;
+  border: unset;
+}
+
+.del-btn-grp:focus {
+  outline: none;
+}
+
 .main-img {
   width: 100%;
   object-fit: cover;
@@ -34,17 +85,6 @@
 .write-up {
   margin-top: 50px;
   font-size: 20px; 
-}
-.editText {
-  text-align: center;
-  padding-top: 3px;
-  width: 70px;
-  height: 30px;
-  border-radius: 10px;
-  background-color: #2e99d6;
-  color: #fff;
-  font-size: 16px;
-  border: 1px solid #2e99d6
 }
 
 @media (max-width: 1024px) {

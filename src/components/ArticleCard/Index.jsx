@@ -52,16 +52,18 @@ ArticleCard.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
   date: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string,
   readTime: PropTypes.string.isRequired,
   likeCount: PropTypes.number.isRequired,
   viewCount: PropTypes.number.isRequired,
   count: PropTypes.number.isRequired,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string,
 };
 
 ArticleCard.defaultProps = {
   text: '',
+  imageUrl: '',
+  slug: '',
 };
 
 export default ArticleCard;

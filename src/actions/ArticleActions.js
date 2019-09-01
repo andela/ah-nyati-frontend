@@ -5,14 +5,17 @@ import {
   GET_ERRORS,
   SET_CURRENT_ARTICLES,
   VIEW_SINGLE_ARTICLE,
+  DELETE_ARTICLE_SUCCESS,
 } from './types';
+
+const baseUrl = 'https://ah-nyati-backend-staging.herokuapp.com/api/v1/';
 
 class ArticleActions {
   static fetchArticles = (limit, page) => (dispatch) => {
     dispatch({
       type: SET_LOADING,
     });
-    return axios.get(`https://ah-nyati-backend-staging.herokuapp.com/api/v1/articles?limit=${limit}&currentPage=${page}`)
+    return axios.get(`${baseUrl}articles?limit=${limit}&currentPage=${page}`)
       .then((res) => {
         dispatch({
           type: FETCH_ARTICLES,
@@ -40,7 +43,7 @@ class ArticleActions {
     dispatch({
       type: SET_LOADING,
     });
-    return axios.get(`https://ah-nyati-backend-staging.herokuapp.com/api/v1/articles/${slug}`)
+    return axios.get(`${baseUrl}articles/${slug}`)
       .then((res) => {
         dispatch({
           type: VIEW_SINGLE_ARTICLE,
@@ -68,6 +71,24 @@ class ArticleActions {
         });
       });
   }
+
+  static deleteArticle = slug => (dispatch) => {
+    const token = localStorage.getItem('jwtToken');
+    const config = { headers: { token } };
+    return axios.delete(`${baseUrl}articles/${slug}`, config)
+      .then((res) => {
+        dispatch({
+          type: DELETE_ARTICLE_SUCCESS,
+          payload: res.data.message,
+        });
+      })
+      .catch((error) => {
+        return dispatch({
+          type: GET_ERRORS,
+          payload: error.message,
+        });
+      });
+  };
 }
 
 export default ArticleActions;
