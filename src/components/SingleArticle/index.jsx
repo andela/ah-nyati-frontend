@@ -7,6 +7,7 @@ import Tags from './Tags';
 import Recommended from './Recommended';
 import CommentsBtn from './CommentsBtn';
 import Loader from '../Loader';
+import SocialShare from '../socialShare';
 import './index.scss';
 
 const { viewArticle, fetchArticles } = articleActions;
@@ -34,6 +35,7 @@ export class SingleArticle extends Component {
     return (
       <div className="container article-container">
         <MainArticle {...this.props.article} />
+        <SocialShare article={this.props.article} />
         <Tags {...this.props.article} />
         <Recommended {...this.props.recommendedArticles} />
         <CommentsBtn />
