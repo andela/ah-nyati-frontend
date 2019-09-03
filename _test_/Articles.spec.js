@@ -5,6 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 import { GetAllArticles } from '../src/views/Articles';
 
+
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('Articles', () => {

@@ -1,3 +1,16 @@
 .article-container {
   padding-bottom: 100px;
 }
+
+.remove-border {
+  border-color: transparent !important;
+}
+.remove-border:focus {
+  box-shadow: none !important;
+}
+
+@media only screen and (max-width: 870px) {
+  .fa-4x {
+    font-size: 2rem !important;
+  }
+}
