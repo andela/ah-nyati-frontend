@@ -2,6 +2,7 @@ import {
   FETCH_ARTICLES,
   SET_LOADING,
   SET_CURRENT_ARTICLES,
+  DELETE_ARTICLE_SUCCESS,
 } from '../actions/types';
 
 const initialState = {
@@ -9,6 +10,7 @@ const initialState = {
   currentArticles: [],
   allArticles: [],
   loading: false,
+  response: null,
 };
 
 const articleReducer = (state = initialState, action) => {
@@ -27,6 +29,12 @@ const articleReducer = (state = initialState, action) => {
         ...state,
         currentArticles: payload,
         loading: false,
+      };
+
+    case DELETE_ARTICLE_SUCCESS:
+      return {
+        ...state,
+        response: payload,
       };
 
     case SET_LOADING:

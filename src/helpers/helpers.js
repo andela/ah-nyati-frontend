@@ -93,6 +93,17 @@ class Helpers {
       history.push('/dashboard');
     }
   }
+
+  /**
+   * @memberof Helpers
+   * @static
+   * @description - redirects the page to dashboard
+   * @param {boolean} authFlag - authentication flag
+   * @param {object} history - the history object
+   */
+  static setAppElement(env, Modal) {
+    if (env !== 'test') Modal.setAppElement('#root');
+  }
 }
 
 export default Helpers;

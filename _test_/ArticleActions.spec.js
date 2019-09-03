@@ -19,30 +19,32 @@ const store = makeMockStore({
 });
 
 describe('Article Actions', () => {
-  beforeEach(() => {
-    moxios.install();
-  });
-  afterEach(() => {
-    moxios.uninstall();
-  });
-
-  it('fetches articles', () => {
-    moxios.wait(() => {
-      const request = moxios.requests.mostRecent();
-      request.respondWith({ status: 200, response: fetchResponseData });
+  describe('fetchArticles', () => {
+    beforeEach(() => {
+      moxios.install();
+    });
+    afterEach(() => {
+      moxios.uninstall();
     });
 
-    const expectedActions = [
-      { type: SET_LOADING },
-      { type: FETCH_ARTICLES, payload: mockData },
-      { type: SET_CURRENT_ARTICLES, payload: mockData.articles },
-    ];
-
-    return store.dispatch(fetchArticles())
-      .then(() => {
-        const actionsCalled = store.getActions();
-        expect(actionsCalled).toEqual(expectedActions);
-        expect(actionsCalled[1].type).toEqual(FETCH_ARTICLES);
+    it('fetches articles', () => {
+      moxios.wait(() => {
+        const request = moxios.requests.mostRecent();
+        request.respondWith({ status: 200, response: fetchResponseData });
       });
+
+      const expectedActions = [
+        { type: SET_LOADING },
+        { type: FETCH_ARTICLES, payload: mockData },
+        { type: SET_CURRENT_ARTICLES, payload: mockData.articles },
+      ];
+
+      return store.dispatch(fetchArticles())
+        .then(() => {
+          const actionsCalled = store.getActions();
+          expect(actionsCalled).toEqual(expectedActions);
+          expect(actionsCalled[1].type).toEqual(FETCH_ARTICLES);
+        });
+    });
   });
 });
