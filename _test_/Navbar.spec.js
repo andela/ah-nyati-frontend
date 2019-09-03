@@ -1,6 +1,7 @@
 import React from 'react';
 import expect from 'expect';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import { BrowserRouter } from 'react-router-dom';
 import Adapter from 'enzyme-adapter-react-16';
 
 import Navbar, { Navbar as Nav } from '../src/components/NavigationBar';
@@ -25,8 +26,12 @@ describe('Navbar', () => {
           user: {},
         },
       });
-      app = shallow(<Navbar store={store} user={user} />);
-      res = app.dive().dive();
+      app = mount(
+        <BrowserRouter>
+          <Navbar store={store} user={user} />
+        </BrowserRouter>,
+      );
+      res = app.find('Navbar');
     });
 
     it('renders successfully', () => {

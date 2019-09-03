@@ -22,7 +22,7 @@ describe('Login reducer', () => {
       ...initialState,
       isAuthenticated: false,
       user: {},
-      loading: true,
+      loading: false,
     });
   });
 

@@ -1,13 +1,14 @@
 import { toast } from 'react-toastify';
-import axios from '../config/axiosInstance';
+import axios from '../api/axios';
 import {
-  GET_ERRORS, SET_CURRENT_USER, LOGIN_LOADING,
+  GET_ERRORS, SET_CURRENT_USER, AUTH_LOADING, REMOVE_CURRENT_USER,
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
+
 // set logged in user
 export const setLoginLoading = () => ({
-  type: LOGIN_LOADING,
+  type: AUTH_LOADING,
 });
 
 // set logged in user
@@ -16,9 +17,19 @@ export const setCurrentUser = decoded => ({
   payload: decoded,
 });
 
+// remove logged in user
+export const removeCurrentUser = () => ({
+  type: REMOVE_CURRENT_USER,
+});
+
+export const logoutError = error => ({
+  type: GET_ERRORS,
+  payload: error.message,
+});
+
 export const loginUser = userData => (dispatch) => {
   dispatch(setLoginLoading());
-  return axios
+  return axios()
     .post('/auth/login', userData)
     .then((res) => {
     // save token to local storage
@@ -45,6 +56,19 @@ export const loginUser = userData => (dispatch) => {
       });
     });
 };
+
+export const logoutUser = (history, user) => (dispatch) => {
+  return axios()
+    .post('/auth/logout', user)
+    .then(() => {
+      localStorage.removeItem('jwtToken');
+      localStorage.removeItem('user');
+      dispatch(removeCurrentUser());
+      history.push('/');
+    })
+    .catch(error => dispatch(logoutError(error)));
+};
+
 /**
  * @description - logs in a user his using social account details
  * @param {string} token - the request token

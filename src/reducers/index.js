@@ -29,6 +29,5 @@ export default combineReducers({
   toastr: toastrReducer,
   fetchCategoryReducer,
   updateArticlesReducer,
-
   profile: profileReducer,
 });

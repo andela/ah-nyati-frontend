@@ -1,4 +1,4 @@
-import { GET_ERRORS, LOGIN_LOADING } from '../actions/types';
+import { GET_ERRORS, AUTH_LOADING } from '../actions/types';
 
 const initialState = {
   error: {
@@ -10,7 +10,7 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case LOGIN_LOADING:
+    case AUTH_LOADING:
       return {
         ...state,
         loading: true,

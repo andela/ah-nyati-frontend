@@ -59,12 +59,14 @@ const App = () => (
       <Route path="/newpassword" component={PasswordReset} />
       <Route path="/socialAuth" component={SocialAuth} />
       <Route path="/article" component={CreateArticlePage} />
-      <Route exact path="/articles" component={Articles} />
-      <Route exact path="/articles/:slug" component={SingleArticle} />
+      <Route path="/articles" component={Articles} />
+      <Route path="/articles/:slug" component={SingleArticle} />
       <Route path="/comments/" component={Comments} />
       <Route path="/updatearticle/:slug" component={UpdateArticlePage} />
       <Route path="/articles" component={Articles} />
       <Route path="/profile/:userId" component={Profile} />
+      <Route path="/comments/" component={Comments} />
+      <Route path="/updatearticle/:slug" component={UpdateArticlePage} />
 
       <Route component={NotFound} />
     </Switch>

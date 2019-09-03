@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import getUser from '../../actions/getUserAction';
+import { logoutUser } from '../../actions/authActions';
 import '../../variables.scss';
 import './index.scss';
 
@@ -25,14 +26,18 @@ export class Navbar extends React.Component {
           userName,
         },
       } = user;
-
       this.props.getUser(userName);
     }
   }
 
+  logOut = () => {
+    const { logoutUser, history } = this.props;
+    logoutUser(history);
+  }
+
   componentDidUpdate(prevProps) {
     const { authUser: { userName } } = this.props;
-    if (prevProps.authUser.userName !== userName) {
+    if (userName && (prevProps.authUser.userName !== userName)) {
       this.props.getUser(userName);
     }
   }
@@ -90,13 +95,7 @@ export class Navbar extends React.Component {
       notification,
     } = this.state;
 
-    const {
-      authUser,
-      loggedInUser: {
-        userName,
-        imageUrl,
-      },
-    } = this.props;
+    const { authUser : {userName, imageUrl }, authUser } = this.props;
 
     const article = this.checkWidth(<i className="fas fa-book-reader" />, 'Articles');
     const notify = this.checkWidth(<i className="fas fa-bell" />, 'Notifications');
@@ -206,7 +205,11 @@ export class Navbar extends React.Component {
                   <li className="navbar-login-user-dropdown-item"><Link to="/article" className="navbar-login-user-dropdown-link">Create Article</Link></li>
                   <li className="navbar-login-user-dropdown-item"><Link to="/articles" className="navbar-login-user-dropdown-link">My Articles</Link></li>
                   <li className="navbar-login-user-dropdown-item"><Link to="/notification" className="navbar-login-user-dropdown-link">Edit Profile</Link></li>
-                  <li className="navbar-login-user-dropdown-item"><Link to="/notification" className="navbar-login-user-dropdown-link">Log Out</Link></li>
+                  <li className="navbar-login-user-dropdown-item">
+                    <Link to="/" onClick={this.logOut} className="navbar-login-user-dropdown-link">
+                      Log Out
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -227,4 +230,4 @@ const mapStateToProps = state => ({
   authUser: state.auth.user,
 });
 
-export default connect(mapStateToProps, { getUser })(Navbar);
+export default withRouter(connect(mapStateToProps, { getUser, logoutUser })(Navbar));
