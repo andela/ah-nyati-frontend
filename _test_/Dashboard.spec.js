@@ -1,37 +1,49 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
+import configureMockStore from 'redux-mock-store';
 
-import Dashboard from '../src/views/Dashboard';
+import { UserDashboard } from '../src/components/Dashboard/index';
+
+const mockStore = configureMockStore();
 
 describe('Dashboard', () => {
-  let component;
+  const props = {
+    authUserProfile: jest.fn(),
+    getAuthUserFollowers: jest.fn(),
+    getAuthUserFollowee: jest.fn(),
+    getAuthUserArticles: jest.fn(),
+    auth: {
+      user: {
+        userName: '',
+        id: '',
+      },
+    },
+  };
+
+  let app;
+  let store;
 
   beforeEach(() => {
-    component = shallow(<Dashboard />);
+    store = mockStore();
+    app = shallow(<UserDashboard store={store} {...props} />);
   });
 
   it('renders successfully', () => {
-    expect(component).toBeDefined();
+    expect(app).toBeDefined();
   });
 
-  it('renders a div component', () => {
-    expect(component.find('div').length).toBe(1);
+  it('renders a div tag', () => {
+    expect(app.find('div').length).toBe(1);
   });
 
-  it('renders an h4 tag', () => {
-    expect(component.find('h4').length).toBe(1);
+  it('renders dashboard index', () => {
+    expect(app).toMatchSnapshot();
   });
 
-  it('renders a ul tag', () => {
-    expect(component.find('ul').length).toBe(2);
-  });
-
-  it('renders a li tag', () => {
-    expect(component.find('li').length).toBe(2);
-  });
-
-  it('renders a Link tag', () => {
-    expect(component.find('Link').length).toBe(2);
+  it('renders without auth', () => {
+    props.auth = null;
+    app = shallow(<UserDashboard store={store} {...props} />);
+    expect(app).toMatchSnapshot();
   });
 });

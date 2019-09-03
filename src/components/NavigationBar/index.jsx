@@ -204,7 +204,7 @@ export class Navbar extends React.Component {
                 >
                   <li className="navbar-login-user-dropdown-item"><Link to="/article" className="navbar-login-user-dropdown-link">Create Article</Link></li>
                   <li className="navbar-login-user-dropdown-item"><Link to="/articles" className="navbar-login-user-dropdown-link">My Articles</Link></li>
-                  <li className="navbar-login-user-dropdown-item"><Link to="/notification" className="navbar-login-user-dropdown-link">Edit Profile</Link></li>
+                  <li className="navbar-login-user-dropdown-item"><Link to="/authUserProfile" className="navbar-login-user-dropdown-link">View Profile</Link></li>
                   <li className="navbar-login-user-dropdown-item">
                     <Link to="/" onClick={this.logOut} className="navbar-login-user-dropdown-link">
                       Log Out

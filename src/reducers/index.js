@@ -14,6 +14,9 @@ import fetchCategoryReducer from './category/category';
 import updateArticlesReducer from './article/update';
 import profileReducer from './profileReducer';
 
+
+import userReducer from './userReducer';
+
 export default combineReducers({
   auth: authReducer,
   err: errorReducer,
@@ -30,4 +33,5 @@ export default combineReducers({
   fetchCategoryReducer,
   updateArticlesReducer,
   profile: profileReducer,
+  userProfile: userReducer,
 });

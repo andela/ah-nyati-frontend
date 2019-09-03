@@ -41,6 +41,10 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/i,
         loader: ['url-loader?limit=8000&name=images/[name].[ext]', 'file-loader'],
       },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader',
+      },
     ],
   },
   plugins: [
