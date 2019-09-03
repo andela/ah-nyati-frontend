@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import slugify from 'slugify';
 
 /**
  * @class Helpers
@@ -92,6 +93,33 @@ class Helpers {
     if (authFlag) {
       history.push('/dashboard');
     }
+  }
+
+  /**
+   * @memberof Helpers
+   * @static
+   * @description - sets the current filter tag
+   * @param {string} tag - filter tag
+   */
+  static setFilterTag(tag) {
+    localStorage.setItem('filterTag', tag);
+  }
+
+
+  /**
+   * @description - Generates a new slug
+   * @param {string} text - text for generating new slug
+   * @returns {string} slug - newly generated slug
+   */
+  static slugGen(text) {
+    const slugifyOptions = {
+      replacement: '-',
+      remove: /[*+~.()'"!:@]/g,
+      lower: true,
+    };
+
+    const slug = slugify(text, slugifyOptions);
+    return slug;
   }
 }
 

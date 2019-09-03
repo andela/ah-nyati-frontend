@@ -147,3 +147,41 @@ export const mockData = {
   ],
   totalCount: 106,
 };
+
+export const getArticlesByTagData = {
+  status: 200,
+  message: 'Article retrieved',
+  data: [
+    {
+      articles: [
+        {
+          id: 1,
+          title: "Kayley and Karl's first fight?",
+          slug: 'article-1',
+          description: '',
+          body: "Kaley Cuoco has been married to equestrian Karl Cook for over a year now, but it sounds like she's not the biggest fan of one of her new husband's digital habits. In a recent interview with Entertainment Tonight, Cuoco was asked about the candid photos that Cook frequently posts of her on Instagram, including pictures of her sleeping. As Cuoco revealed, Cook does not get her permission before posting these photos, which she finds both frustrating and endearing.  “No, he’s his own man.\" Cuoco joked when asked if she approves his photos. \"He makes his own Instagram decisions. He’s bold.”  “Well, he doesn’t ask me before he posts them, so…\" Cuoco explained. \"He just, he loves a good sleeping picture. Not Sleeping Beauty, like he loves a [real sleeping photo], and he loves to take a picture from down here. It’s his favorite thing to do. He’s just funny.”  “By year six, he’ll know not to do that,” Cuoco's Harley Quinn co-star, Lake Bell, added.  “Yeah, right now it’s kind of cute, but…” Cuoco responded.  Outside of some slightly-embarrassing Instagram photos, Cuoco revealed that she and Cook are enjoying married life.  “Yeah, we’re having a blast. He’s the best. Other than our, obviously, Instagram feud, we’re doing really well.”  Cuoco can next be seen (or, well, heard) in Harley Quinn, an adult animated take on the iconic DC character.  \"[It's] very progres[ive],\" Cuoco said in the same interview.  \"Yes, very feminist in a way,\" Bell added.  \"It's major female empowerment, it's badass,\" Cuoco said, before turning to Bell and asking \"When I read the script, were you just like 'Yes!'?'\"",
+          imageUrl: 'https://res.cloudinary.com/phembarl/image/upload/v1566514294/kayley2_lcuhxh.jpg',
+          isDraft: true,
+          views: 1275,
+          read: 1275,
+          readRatio: 0,
+          createdAt: '2019-08-05T20:27:17.456Z',
+          updatedAt: '2019-08-27T18:11:50.535Z',
+          userId: 1,
+          catId: 1,
+          User: {
+            firstName: 'Nzubechukwu',
+            lastName: 'Nnamani',
+            userName: 'Odogwu',
+            email: 'nzubennamani@gmail.com',
+            bio: 'Hahahahahha',
+            role: 'user',
+            imageUrl: 'http://res.cloudinary.com/phembarl/image/upload/v1566812988/nkem.jpg.jpg',
+            emailNotification: true,
+          },
+        },
+      ],
+      articleCount: 1,
+    },
+  ],
+};

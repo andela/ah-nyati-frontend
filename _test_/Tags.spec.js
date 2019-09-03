@@ -18,8 +18,14 @@ describe('Tags', () => {
     expect(component).toBeDefined();
   });
 
-  it('renders three div components', () => {
-    expect(component.find('div').length).toBe(3);
+  it('has an onclick handler', () => {
+    const app = shallow(<Tags tags={['tag']} />);
+    expect(app.find('Link').length).toBe(1);
+    app.find('Link').simulate('click');
+  });
+
+  it('renders three Link', () => {
+    expect(component.find('Link').length).toBe(3);
   });
 
   it('renders no div component', () => {

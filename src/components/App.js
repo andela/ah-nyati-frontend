@@ -23,6 +23,7 @@ import CreateArticlePage from './article/CreateArticlePage';
 import UpdateArticlePage from './article/UpdateArticlePage';
 import SingleArticle from './SingleArticle';
 import Comments from './Comments';
+import FilteredArticlesPage from '../views/FilteredArticles';
 
 const token = localStorage.jwtToken;
 let loggedInUser = {};
@@ -54,19 +55,16 @@ const App = () => (
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/login" component={Login} />
       <Route path="/about" component={About} />
-      <Route path="/dashboard" component={Dashboard} />
       <Route path="/resetPassword" component={ResetPassword} />
       <Route path="/newpassword" component={PasswordReset} />
       <Route path="/socialAuth" component={SocialAuth} />
       <Route path="/article" component={CreateArticlePage} />
-      <Route path="/articles" component={Articles} />
+      <Route exact path="/articles" component={Articles} />
+      <Route path="/articles/tagged/:tagSlug" component={FilteredArticlesPage} />
       <Route path="/articles/:slug" component={SingleArticle} />
       <Route path="/comments/" component={Comments} />
       <Route path="/updatearticle/:slug" component={UpdateArticlePage} />
-      <Route path="/articles" component={Articles} />
       <Route path="/profile/:userId" component={Profile} />
-      <Route path="/comments/" component={Comments} />
-      <Route path="/updatearticle/:slug" component={UpdateArticlePage} />
 
       <Route component={NotFound} />
     </Switch>

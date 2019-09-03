@@ -3,6 +3,7 @@ import {
   FETCH_ARTICLES,
   SET_LOADING,
   SET_CURRENT_ARTICLES,
+  GET_ARTICLES_BY_TAG,
 } from '../src/actions/types';
 
 describe('fetch all article reducer', () => {
@@ -11,6 +12,7 @@ describe('fetch all article reducer', () => {
       {
         totalArticles: 0,
         currentArticles: [],
+        articlesByTag: [],
         allArticles: [],
         loading: false,
       },
@@ -21,6 +23,18 @@ describe('fetch all article reducer', () => {
       {
         totalArticles: 0,
         currentArticles: [],
+        articlesByTag: [],
+        allArticles: [],
+        loading: false,
+      },
+    );
+  });
+  it('should fetch all articles by tag', () => {
+    expect(reducer(undefined, { type: GET_ARTICLES_BY_TAG, payload: { articles: [], totalCount: 0 } })).toEqual(
+      {
+        totalArticles: 0,
+        currentArticles: [],
+        articlesByTag: { articles: [], totalCount: 0 },
         allArticles: [],
         loading: false,
       },
@@ -31,6 +45,7 @@ describe('fetch all article reducer', () => {
       {
         totalArticles: 0,
         loading: true,
+        articlesByTag: [],
         currentArticles: [],
         allArticles: [],
       },
@@ -41,6 +56,7 @@ describe('fetch all article reducer', () => {
       {
         totalArticles: 0,
         currentArticles: [],
+        articlesByTag: [],
         loading: false,
         allArticles: [],
       },

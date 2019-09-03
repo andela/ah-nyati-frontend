@@ -11,5 +11,11 @@
   padding-right: 30px;
   padding-left: 30px;
   background: #f2f2f2;
+  color: #b9b9b9;
   cursor: pointer;
+}
+a.tags:hover {
+  text-decoration: none;
+  background: #dadada;
+  color: #6b6b6b;
 }
