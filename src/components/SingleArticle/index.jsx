@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MainArticle from './MainArticle';
 import articleActions from '../../actions/ArticleActions';
 import Tags from './Tags';
+import Like from './Like';
 import Recommended from './Recommended';
 import CommentsBtn from './CommentsBtn';
 import Loader from '../Loader';
@@ -37,6 +38,7 @@ export class SingleArticle extends Component {
         <MainArticle {...this.props.article} />
         <SocialShare article={this.props.article} />
         <Tags {...this.props.article} />
+        <Like />
         <Recommended {...this.props.recommendedArticles} />
         <CommentsBtn />
       </div>
